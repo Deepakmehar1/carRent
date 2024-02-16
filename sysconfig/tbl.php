@@ -19,13 +19,11 @@ if ($conn->connect_error) {
     year INT NOT NULL,
     rental_price DECIMAL(10, 2) NOT NULL
 )"; */
-$sql = "CREATE TABLE rentals (
-    rental_id INT AUTO_INCREMENT PRIMARY KEY,
+$sql = "CREATE TABLE testimonials (
+    tstmnl_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     car_id INT NOT NULL,
-    start_date DATE NOT NULL,
-    end_date DATE NOT NULL,
-    total_cost DECIMAL(10, 2) NOT NULL,
+    tmsg VARCHAR(150) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (car_id) REFERENCES cars(car_id)
 )";
