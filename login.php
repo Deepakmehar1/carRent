@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row['password'])) {
             // Password is correct, set session variables
             $_SESSION['email'] = $email;
-          localStorage.setItem("user", $email);
+            $_SESSION['user_id'] = $row['user_id'];
             // Redirect to dashboard or any other page
             header("Location: nav.php");
             exit();

@@ -35,9 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $model = $_POST['model'];
     $year = $_POST['year'];
     $rental_price = $_POST['rental_price'];
+    $availability = $_POST['availability'];
 
     // Update car details in the database
-    $update_sql = "UPDATE cars SET make='$make', model='$model', year='$year', rental_price='$rental_price' WHERE car_id=$car_id";
+    $update_sql = "UPDATE cars SET make='$make', model='$model', year='$year', rental_price='$rental_price', availability='$availability' WHERE car_id=$car_id";
 
     if ($conn->query($update_sql) === TRUE) {
         // Redirect to manage_cars.php after successful update
@@ -65,6 +66,8 @@ $conn->close();
         <input type="text" id="make" name="make" value="<?php echo $car['make']; ?>" required><br><br>
         <label for="model">Model:</label><br>
         <input type="text" id="model" name="model" value="<?php echo $car['model']; ?>" required><br><br>
+        <label for="availability">availability:</label><br>
+        <input type="text" id="availability" name="availability" value="<?php echo $car['availability']; ?>" required><br><br>
         <label for="year">Year:</label><br>
         <input type="number" id="year" name="year" value="<?php echo $car['year']; ?>" required><br><br>
         <label for="rental_price">Rental Price:</label><br>

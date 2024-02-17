@@ -48,6 +48,7 @@ $conn->close();
             <td><?php echo $car['model']; ?></td>
             <td><?php echo $car['year']; ?></td>
             <td><?php echo $car['rental_price']; ?></td>
+            <td><?php echo $car['availability']; ?></td>
             <td>
                 <a href="edit_car.php?car_id=<?php echo $car['car_id']; ?>">Edit</a>
                 <a href="delete_car.php?car_id=<?php echo $car['car_id']; ?>" onclick="return confirm('Are you sure you want to delete this car?')">Delete</a>
