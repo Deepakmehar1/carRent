@@ -1,4 +1,5 @@
 <?php
+
 if (!isset($_GET['car_id'])) {
     header("Location: manegeCars.php");
     exit();
@@ -7,7 +8,7 @@ if (!isset($_GET['car_id'])) {
 $car_id = $_GET['car_id'];
 
 // Database connection
-    include 'sysconfig/mysql.php';
+include 'sysconfig/mysql.php';
 
 
 // Check connection
@@ -18,13 +19,12 @@ if ($conn->connect_error) {
 // Delete car from database
 $sql = "DELETE FROM cars WHERE car_id = $car_id";
 
-if ($conn->query($sql) === TRUE) {
+if ($conn->query($sql) === true) {
     echo "Car deleted successfully";
     header("Location: manegeCars.php");
-        exit();
+    exit();
 } else {
     echo "Error deleting car: " . $conn->error;
 }
 
 $conn->close();
-?>

@@ -2,7 +2,7 @@
 session_start();
 
 // Database connection
-    include 'sysconfig/mysql.php';
+include 'sysconfig/mysql.php';
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

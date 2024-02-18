@@ -1,6 +1,6 @@
 <?php
 // Database connection
-    include 'sysconfig/mysql.php';
+include 'sysconfig/mysql.php';
 
 
 // Check connection
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Update car details in the database
     $update_sql = "UPDATE cars SET make='$make', model='$model', year='$year', rental_price='$rental_price', availability='$availability' WHERE car_id=$car_id";
 
-    if ($conn->query($update_sql) === TRUE) {
+    if ($conn->query($update_sql) === true) {
         // Redirect to manage_cars.php after successful update
         header("Location: manegeCars.php");
         exit();
