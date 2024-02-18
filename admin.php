@@ -1,68 +1,45 @@
 <?php
+
 // Database connection
-    include 'sysconfig/mysql.php';
+include 'sysconfig/mysql.php';
+
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Handle form submissions
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['add_car'])) {
-        // Handle adding a new car
-        $make = $_POST['make'];
-        $model = $_POST['model'];
-        $year = $_POST['year'];
-        $rental_price = $_POST['rental_price'];
-
-        $sql = "INSERT INTO cars (make, model, year, rental_price) VALUES ('$make', '$model', '$year', '$rental_price')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "New car added successfully.";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    } elseif (isset($_POST['delete_car'])) {
-        // Handle deleting a car
-        $car_id = $_POST['car_id'];
-
-        $sql = "DELETE FROM cars WHERE Car_ID = $car_id";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "Car deleted successfully.";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    }
-}
-
-// Retrieve and display existing cars
+// Fetch cars from database
 $sql = "SELECT * FROM cars";
 $result = $conn->query($sql);
 
+$cars = [];
 if ($result->num_rows > 0) {
-    echo "<table>";
-    echo "<tr><th>Car ID</th><th>Make</th><th>Model</th><th>Year</th><th>Rental Price</th><th>Actions</th></tr>";
-    while($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>".$row["Car_ID"]."</td>";
-        echo "<td>".$row["Make"]."</td>";
-        echo "<td>".$row["Model"]."</td>";
-        echo "<td>".$row["Year"]."</td>";
-        echo "<td>".$row["Rental_Price"]."</td>";
-        echo "<td><form method='post' action='".htmlspecialchars($_SERVER["PHP_SELF"])."'>
-                    <input type='hidden' name='car_id' value='".$row["Car_ID"]."'>
-                    <input type='submit' name='delete_car' value='Delete'>
-                </form></td>";
-        echo "</tr>";
+    while ($row = $result->fetch_assoc()) {
+        $cars[] = $row;
     }
-    echo "</table>";
-} else {
-    echo "No cars found.";
+}
+// Fetch users from database
+$sql = "SELECT * FROM users";
+$useResult = $conn->query($sql);
+
+$users = [];
+if ($useResult->num_rows > 0) {
+    while ($row1 = $useResult->fetch_assoc()) {
+        $users[] = $row1;
+    }
+}
+// Fetch rantalss from database
+$sql = "SELECT * FROM rentals";
+$rentalsResult = $conn->query($sql);
+
+$rentals = [];
+if ($rentalsResult->num_rows > 0) {
+    while ($row2 = $rentalsResult->fetch_assoc()) {
+        $rentals[] = $row2;
+    }
 }
 
-// Close connection
 $conn->close();
 ?>
 <!DOCTYPE html>
@@ -81,9 +58,86 @@ $conn->close();
     <main>
         <section id="manage-cars">
             <h2>Manage Cars</h2>
-            <?php include 'admin.php'; ?>
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Rental Price</th>
+                    <th>Action</th>
+                    <th>lastOfBook</th>
+                </tr>
+                <?php foreach ($cars as $car): ?>
+                <tr>
+                    <td><?php echo $car['car_id']; ?></td>
+                    <td><?php echo $car['make']; ?></td>
+                    <td><?php echo $car['model']; ?></td>
+                    <td><?php echo $car['year']; ?></td>
+                    <td><?php echo $car['rental_price']; ?></td>
+                    <td><?php echo $car['availability']; ?></td>
+                    <td><?php echo $car['lastOfBook']; ?></td>
+                    
+                </tr>
+                <?php endforeach; ?>
+            </table>
+                <a href="manegeCars.php">manegeCars</a>
+
         </section>
         <!-- Other sections of the dashboard -->
+        <section id="manage-user">
+            <h2>Manage user</h2>
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>restriction</th>
+                    
+                </tr>
+                <?php foreach ($users as $user): ?>
+                <tr>
+                    <td><?php echo $user['user_id']; ?></td>
+                    <td><?php echo $user['username']; ?></td>
+                    <td><?php echo $user['email']; ?></td>
+                    <td><?php echo $user['restriction']; ?></td>
+                   
+                    
+                </tr>
+                <?php endforeach; ?>
+            </table>
+                <a href="manegeUsers.php">manegeUsers</a>
+
+        </section>
+        <section id="rentals">
+            <h2>rentals</h2>
+            <table border="1">
+                <tr>
+                    <th>rental_id</th>
+                    <th>user_id</th>
+                    <th>car_id</th>
+                    <th>start_date</th>
+                    <th>end_date</th>
+                    <th>total_cost</th>
+                    
+                </tr>
+                <?php foreach ($rentals as $rental): ?>
+                <tr>
+                    <td><?php echo $rental['rental_id']; ?></td>
+                    <td><?php echo $rental['user_id']; ?></td>
+                    <td><?php echo $rental['car_id']; ?></td>
+                    <td><?php echo $rental['start_date']; ?></td>
+                    <td><?php echo $rental['end_date']; ?></td>
+                    <td><?php echo $rental['total_cost']; ?></td>
+                   
+                    
+                </tr>
+                <?php endforeach; ?>
+            </table>
+                
+
+        </section>
     </main>
 </body>
 </html>
+   
