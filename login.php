@@ -24,6 +24,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Password is correct, set session variables
             $_SESSION['email'] = $email;
             $_SESSION['user_id'] = $row['user_id'];
+
+
+            
+            // Serialize user data to store in the cookie
+            $serialized_data = serialize($row);
+
+            // Set a persistent cookie with user data
+            setcookie('user_data', $serialized_data, time() + (86400 * 30), "/"); // Cookie expires in 30 days
+
             // Redirect to dashboard or any other page
             header("Location: nav.php");
             exit();
@@ -55,6 +64,7 @@ $conn->close();
     <input type="password" id="password" name="password" required><br><br>
     <input type="submit" value="Login">
 </form>
-
+        
+    
 </body>
 </html>

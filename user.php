@@ -2,27 +2,19 @@
 
 // Database connection
 include 'sysconfig/mysql.php';
-session_start();
-
-$user_id = $_SESSION['user_id'];
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+// Retrieve data from the persistent cookie
+if (isset($_COOKIE['user_data'])) {
+    $user_data = unserialize($_COOKIE['user_data']);
+    
+    $user_Id = $user_data['user_id'];
 
 // Fetch rantalss from database
-$sql = "SELECT * FROM users WHERE user_id=$user_id";
-$userResult = $conn->query($sql);
-
-$user = [];
-if ($userResult->num_rows > 0) {
-    while ($row = $userResult->fetch_assoc()) {
-        $user[] = $row;
-    }
-}
-// Fetch rantalss from database
-$sql = "SELECT * FROM rentals WHERE user_id=$user_id";
+$sql = "SELECT * FROM rentals WHERE user_id=$user_Id";
 $rentalsResult = $conn->query($sql);
 
 $rentals = [];
@@ -32,6 +24,13 @@ if ($rentalsResult->num_rows > 0) {
     }
 }
 
+} else {
+    // Fetch rantalss from database
+    header("Location: login.php");
+
+}
+
+
 $conn->close();
 ?>
 <!DOCTYPE html>
@@ -39,13 +38,11 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Manage Cars</title>
+    <title>user profile</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Admin Dashboard</h1>
-    </header>
+    
   
     <main>
         
@@ -58,15 +55,14 @@ $conn->close();
                     <th>email</th>
                     
                 </tr>
-                <?php foreach ($user as $user): ?>
+              
                 <tr>
-                    <td><?php echo $user['user_id']; ?></td>
-                    <td><?php echo $user['username']; ?></td>
-                    <td><?php echo $user['email']; ?></td>
+                    <td><?php echo $user_data['user_id']; ?></td>
+                    <td><?php echo $user_data['username']; ?></td>
+                    <td><?php echo $user_data['email']; ?></td>
                    
                     
                 </tr>
-                <?php endforeach; ?>
             </table>
                 <a href="update_user.php">Edit</a>
              
