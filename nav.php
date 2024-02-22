@@ -29,6 +29,13 @@
             echo '<a href="/car_rent/rantals.php" class="navItem">HISTORY</a>';
             echo '<a href="/car_rent/logout.php" class="navItem">LOGOUT</a>';
 
+            $user_data = unserialize($_COOKIE['user_data']);
+
+            if ($user_data['admin'] == 'yehh') {
+                echo '<a href="/car_rent/admin.php" class="navItem">ADMIN</a>';
+            }
+
+
         } else {
             echo '<a href="/car_rent/login.php" class="navItem">LOGIN</a>';
             echo '<a href="/car_rent/register.php" class="navItem">REGISTER</a>';

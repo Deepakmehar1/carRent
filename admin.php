@@ -4,6 +4,16 @@
 include 'sysconfig/mysql.php';
 
 
+if (isset($_COOKIE['user_data'])) {
+    $user_data = unserialize($_COOKIE['user_data']);
+
+    $admin = $user_data['admin'];
+}
+if ($admin == 'no') {
+
+    header("Location: user.php");
+
+}
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -30,7 +40,11 @@ if ($useResult->num_rows > 0) {
     }
 }
 // Fetch rantalss from database
-$sql = "SELECT * FROM rentals";
+$sql = "SELECT rentals.rental_id, users.username, cars.make,rentals.start_date,rentals.end_date,rentals.total_cost
+FROM rentals 
+INNER JOIN cars ON rentals.car_id = cars.car_id 
+INNER JOIN users ON rentals.user_id = users.user_id
+";
 $rentalsResult = $conn->query($sql);
 
 $rentals = [];
@@ -124,8 +138,8 @@ $conn->close();
                 <?php foreach ($rentals as $rental): ?>
                 <tr>
                     <td><?php echo $rental['rental_id']; ?></td>
-                    <td><?php echo $rental['user_id']; ?></td>
-                    <td><?php echo $rental['car_id']; ?></td>
+                    <td><?php echo $rental['username']; ?></td>
+                    <td><?php echo $rental['make']; ?></td>
                     <td><?php echo $rental['start_date']; ?></td>
                     <td><?php echo $rental['end_date']; ?></td>
                     <td><?php echo $rental['total_cost']; ?></td>

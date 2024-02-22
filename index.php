@@ -8,7 +8,8 @@
 </head>
 <body>
 <?php
-    include('nav.php')
+    include('nav.php');
+include('trand.php');
 ?>
 <!-- Hero Section -->
 <section class="hero">
@@ -21,7 +22,26 @@
 <!-- Trending Cars Section -->
 <section id="trending-cars">
     <h2>Trending Cars for Rent</h2>
-    <!-- Add trending cars here -->
+     <table border="1">
+                <tr>
+                  
+                    <th>car_id</th>
+                    <th>make</th>
+                    <th>model</th>
+                    <th>count</th>
+                  
+                    
+                </tr>
+                <?php foreach ($rentals as $rental): ?>
+                <tr>
+                    <td><?php echo $rental['car_id']; ?></td>
+                    <td><?php echo $rental['make']; ?></td>
+                    <td><?php echo $rental['model']; ?></td>
+                    <td><?php echo $rental['total_occurrences']; ?></td>
+
+                </tr>
+                <?php endforeach; ?>
+            </table>
     
 </section>
 
@@ -29,6 +49,28 @@
 <section class="most-rented">
     <h2>Most Rented Cars</h2>
     <!-- Add slider for most rented cars here -->
+         <table border="1">
+                <tr>
+                  
+                    <th>car_id</th>
+                    <th>make</th>
+                    <th>model</th>
+                    <th>price</th>
+                  
+                    
+                </tr>
+                <?php foreach ($topcars as $topcar): ?>
+                <tr>
+                    <td><?php echo $topcar['car_id']; ?></td>
+                    <td><?php echo $topcar['make']; ?></td>
+                    <td><?php echo $topcar['model']; ?></td>
+                    <td><?php echo $topcar['rental_price']; ?></td>
+
+                </tr>
+                <?php endforeach; ?>
+            </table>
+    
+
 </section>
 
 <!-- Testimonial Slider -->
