@@ -1,13 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <nav>
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 10px;
+    margin: 0px;
+    color: #292d2d;
+    z-index: 10000;
+    transition: 0.6s;
+  }
+  nav.sticky {
+    padding: 10px 10px;
+    background: #fff;
+  }
+  nav ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  nav ul li {
+    position: relative;
+    list-style: none;
+  }
+  nav ul li a {
+    position: relative;
+    color: rgb(27, 23, 23);
+    text-decoration: none;
+    font-size: 18px;
+    margin: 0 15px;
+    letter-spacing: 2px;
+    font-weight: 500px;
+  }
+  nav ul li a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: rgb(42, 135, 124);
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+  }
+  nav ul li a:hover::after {
+    width: 110%;
+  }
+</style>
+<nav>
       <div class="left">DEEPAK</div>
       <ul id="middle">
         <li>
@@ -40,8 +85,8 @@
             echo '<a href="/car_rent/login.php" class="navItem">LOGIN</a>';
             echo '<a href="/car_rent/register.php" class="navItem">REGISTER</a>';
         }?></div>
-    </nav>
-    <script>
+</nav>
+<script>
       function stick_navigatio() {
         window.addEventListener("scroll", function () {
           var nav = this.document.querySelector("nav");
@@ -49,6 +94,4 @@
         });
       }
       stick_navigatio();
-    </script>
-  </body>
-</html>
+</script>

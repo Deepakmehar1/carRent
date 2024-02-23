@@ -2,29 +2,35 @@
 // Database connection
 include 'sysconfig/mysql.php';
 
-session_start();
-
-$user_id = $_SESSION['user_id'];
 
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+if (isset($_COOKIE['user_data'])) {
+    $user_data = unserialize($_COOKIE['user_data']);
+
+    $user_id = $user_data['user_id'];
 
 
-// Fetch car details from the database
-$sql = "SELECT * FROM users WHERE user_id = $user_id";
-$result = $conn->query($sql);
+    // Fetch car details from the database
+    $sql = "SELECT * FROM users WHERE user_id = $user_id";
+    $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    $car = $result->fetch_assoc();
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+    } else {
+        // If no user found with the given user_id, redirect to manage_cars.php
+        header("Location: user.php");
+        exit();
+    }
+
 } else {
-    // If no car found with the given user_id, redirect to manage_cars.php
-    header("Location: user.php");
-    exit();
-}
+    // Fetch rantalss from database
+    header("Location: login.php");
 
+}
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
@@ -60,11 +66,11 @@ $conn->close();
     <h2>Edit Car</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?user_id=' . $user_id; ?>" method="post">
         <label for="username">username:</label><br>
-        <input type="text" id="username" name="username" value="<?php echo $car['username']; ?>" required><br><br>
+        <input type="text" id="username" name="username" value="<?php echo $user['username']; ?>" required><br><br>
         <label for="password">password:</label><br>
-        <input type="password" id="password" name="password" value="<?php echo $car['password']; ?>" required><br><br>
+        <input type="password" id="password" name="password" placeholder="New Pasword" required><br><br>
         <label for="email">email:</label><br>
-        <input type="email" id="email" name="email" value="<?php echo $car['email']; ?>" required><br><br>
+        <input type="email" id="email" name="email" value="<?php echo $user['email']; ?>" required><br><br>
         
         <input type="submit" value="Update user">
     </form>

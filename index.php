@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Rental Home</title>
     <!-- Add your CSS link here -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <?php
@@ -21,6 +22,7 @@ include('trand.php');
 
 <!-- Trending Cars Section -->
 <section id="trending-cars">
+    
     <h2>Trending Cars for Rent</h2>
      <table border="1">
                 <tr>
@@ -74,17 +76,12 @@ include('trand.php');
 </section>
 
 <!-- Testimonial Slider -->
-<section class="testimonials">
+<section class="testimonials" id="testimonial">
     <h2>What Our Customers Say</h2>
     <!-- Add testimonial slider here -->
-    <div class="testimonial">
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget magna in libero pharetra placerat. Etiam at eros ac justo lobortis fermentum."</p>
-        <p>- John Doe</p>
-    </div>
-    <div class="testimonial">
-        <p>"Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam auctor magna sed risus semper, nec ultricies elit fermentum."</p>
-        <p>- Jane Smith</p>
-    </div>
+    <?php
+        include('testimonial.php');
+?>
 </section>
 
 <!-- Small Contact Section -->
@@ -103,7 +100,7 @@ include('trand.php');
 </section>
 
 <!-- #FAQ or Q&A Section -->
-<section class="faq">
+<section class="faq" id="faq">
     <style>
         .answer {
             display: none;
@@ -130,6 +127,11 @@ include('trand.php');
         }
     </script>
 </section>
+
+<!-- footer -->
+<?php
+include('footer.php');
+?>
 
 <!-- Add your JavaScript scripts here -->
 
