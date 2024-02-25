@@ -37,6 +37,7 @@
       opacity: 1;
     }
   }
+  
 </style>
 <div class="slider">
   <button class="previous">pich</button>

@@ -17,6 +17,8 @@
   nav.sticky {
     padding: 10px 10px;
     background: #fff;
+    filter: drop-shadow(0px 0px 0.6px black);
+
   }
   nav ul {
     position: relative;
@@ -51,6 +53,17 @@
   nav ul li a:hover::after {
     width: 110%;
   }
+  .right {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+  }
+  .right .lore{
+    text-decoration: none;
+    padding: 4px 6px;
+    border:.1px solid;
+    border-radius: 20px;
+  }
 </style>
 <nav>
       <div class="left">DEEPAK</div>
@@ -82,8 +95,8 @@
 
 
         } else {
-            echo '<a href="/car_rent/login.php" class="navItem">LOGIN</a>';
-            echo '<a href="/car_rent/register.php" class="navItem">REGISTER</a>';
+          echo '<a href="/car_rent/register.php" class="navItem lore" style="color: black;">REGISTER</a>';
+          echo '<a href="/car_rent/login.php" class="navItem lore" style="color: lightseagreen;">LOGIN</a>';
         }?></div>
 </nav>
 <script>

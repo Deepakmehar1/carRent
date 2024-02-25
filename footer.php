@@ -1,6 +1,7 @@
 <style>
 .footer-distributed{
-	background: #101010;
+  background: linear-gradient(180deg, #1b1b1b, #090909 84.5%, #000);
+	/* background: #101010; */
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 104%;

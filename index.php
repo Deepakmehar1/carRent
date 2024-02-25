@@ -13,12 +13,70 @@
 include('trand.php');
 ?>
 <!-- Hero Section -->
+<style>
+    a.btn {
+    transform: translateY(32px);
+    position: absolute;
+    text-decoration: none;
+    color: white;
+    background: lightseagreen;
+    padding: 10px;
+    border-radius: 20px;
+}
+    .hero{
+        height: 60vh;
+        position: relative;
+    }.hero-left {
+        display: inline;
+        position: absolute;
+        top: 40%;
+        left: 10%;
+    }h1 {
+        font-size: 1.7rem;
+        font-weight: 700;
+        letter-spacing: -0.3px;
+        word-spacing: 3.5px;
+    }.hero-right {
+        position: absolute;
+        width: 50%;
+        transform: translate(100%, 50%);
+        display: flex;
+        justify-content: flex-start;
+    }
+    .hero-right img{
+        margin-right: -20px;
+        height: 285px;
+        display: none;
+    }
+    .hero-right img.active {
+        display: block;
+        transition: all 2s ;
+        animation: rlfadeImg 0.8s;
+    }@keyframes rlfadeImg {
+    from {
+      opacity: 0;
+      transform:translateX(20px);
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+</style>
 <section class="hero">
-    <h1>Welcome to Our Car Rental Service</h1>
+    <div class="hero-left">
+        <h1>Welcome to Our Car Rental Service</h1>
+        <p style="opacity: 0.9;">Find the perfect car for your next adventure!</p>
+        <a href="/car_rent/allcars.php" class="btn">Explore Now</a>
+    </div>
     <!-- Add hero image or video here -->
-    <p>Find the perfect car for your next adventure!</p>
-    <a href="#trending-cars" class="btn">Explore Now</a>
+    <div class="hero-right">
+        <img class="active" src="./img/car1.png" alt=""> 
+        <img src="./img/car2.png" alt=""> 
+        <img src="./img/car3.png" alt=""> 
+    </div>
 </section>
+
 
 <!-- Trending Cars Section -->
 <section id="trending-cars">
@@ -135,5 +193,23 @@ include('footer.php');
 
 <!-- Add your JavaScript scripts here -->
 
+<script>
+
+    const img_items = document . querySelectorAll("img");
+    function showNextimg() {
+        const itemCount = img_items . length;
+        img_items[count].classList.remove("active");
+    
+        if (count < itemCount - 1) {
+        count++;
+        } else {
+        count = 0;
+        }
+        img_items[count].classList.add("active");
+    }
+    
+    setInterval(showNextimg, 3000);
+
+</script>
 </body>
 </html>
