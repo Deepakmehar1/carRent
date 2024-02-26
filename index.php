@@ -22,7 +22,7 @@ include('trand.php');
     background: lightseagreen;
     padding: 10px;
     border-radius: 20px;
-}
+    }
     .hero{
         height: 60vh;
         position: relative;
@@ -80,57 +80,104 @@ include('trand.php');
 
 <!-- Trending Cars Section -->
 <section id="trending-cars">
-    
-    <h2>Trending Cars for Rent</h2>
-     <table border="1">
-                <tr>
-                  
-                    <th>car_id</th>
-                    <th>make</th>
-                    <th>model</th>
-                    <th>count</th>
-                  
-                    
-                </tr>
-                <?php foreach ($rentals as $rental): ?>
-                <tr>
-                    <td><?php echo $rental['car_id']; ?></td>
-                    <td><?php echo $rental['make']; ?></td>
-                    <td><?php echo $rental['model']; ?></td>
-                    <td><?php echo $rental['total_occurrences']; ?></td>
+    <style>
+        .trand_container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 32px;
+        
+        }.tcar {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            border: 2px solid;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+        }
+        .tcar img{
+            height: 150px;
+            align-self: center;
+        }
+        .tcar .car_deta{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .tcar:hover .car_deta{
+            display: block;
+        }
 
-                </tr>
-                <?php endforeach; ?>
-            </table>
-    
+    </style>
+    <h2>Trending Cars for Rent</h2>
+    <div class="trand_container">
+        <?php foreach ($rentals as $rental): ?>
+            <div class="tcar">
+                <img src="./img/car2.png" alt="">
+                <div class="car_deta">
+                    <h3>carId:<?php echo $rental['car_id']; ?></h3>
+                    <p>make<?php echo $rental['make']; ?></p>
+                    <p>model<?php echo $rental['model']; ?></p>
+                    <h2>price<?php echo $rental['rental_price']; ?></h2>
+                </div>
+            </div>     
+        <?php endforeach; ?>
+        <div class="tcar"><img src="./img/car2.png" alt=""><div class="car_deta">fgfgd</div></div>
+    </div>  
 </section>
 
 <!-- Slider for Most Rented Cars -->
 <section class="most-rented">
+    <style>
+        .high_rate_container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 32px;
+        
+        }.hrcar {
+            text-decoration:none;
+            width: 300px;
+            height: 200px;
+            position: relative;
+            border: 2px solid black;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+        }
+        .hrcar img{
+            height: 150px;
+            align-self: center;
+        }
+        .hrcar .car_deta{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .hrcar:hover .car_deta{
+            display: block;
+        }
+
+    </style>
     <h2>Most Rented Cars</h2>
     <!-- Add slider for most rented cars here -->
-         <table border="1">
-                <tr>
-                  
-                    <th>car_id</th>
-                    <th>make</th>
-                    <th>model</th>
-                    <th>price</th>
-                  
-                    
-                </tr>
-                <?php foreach ($topcars as $topcar): ?>
-                <tr>
-                    <td><?php echo $topcar['car_id']; ?></td>
-                    <td><?php echo $topcar['make']; ?></td>
-                    <td><?php echo $topcar['model']; ?></td>
-                    <td><?php echo $topcar['rental_price']; ?></td>
-
-                </tr>
-                <?php endforeach; ?>
-            </table>
-    
-
+    <div class="high_rate_container">
+        <?php foreach ($topcars as $topcar): ?>
+            <a href=<?php echo "/car_rent/car.php?car_id=" . $topcar['car_id'];?> class="hrcar">
+                <img src="./img/car2.png" alt="">
+                <div class="car_deta">
+                    <h3>carId:<?php echo $topcar['car_id']; ?></h3>
+                    <p>make<?php echo $topcar['make']; ?></p>
+                    <p>model<?php echo $topcar['model']; ?></p>
+                    <h2>price<?php echo $topcar['rental_price']; ?></h2>
+                </div>
+            </a>     
+        <?php endforeach; ?>
+        <a href="/car_rent/allcars.php" class="hrcar"><img src="./img/car2.png" alt=""><div class="car_deta">fgfgd</div></a>
+    </div>  
 </section>
 
 <!-- Testimonial Slider -->
