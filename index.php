@@ -88,6 +88,7 @@ include('trand.php');
             gap: 32px;
         
         }.tcar {
+            text-decoration:none;
             width: 300px;
             height: 200px;
             position: relative;
@@ -114,7 +115,7 @@ include('trand.php');
     <h2>Trending Cars for Rent</h2>
     <div class="trand_container">
         <?php foreach ($rentals as $rental): ?>
-            <div class="tcar">
+            <a href=<?php echo "/car_rent/car.php?car_id=" . $rental['car_id'];?> class="tcar">
                 <img src="./img/car2.png" alt="">
                 <div class="car_deta">
                     <h3>carId:<?php echo $rental['car_id']; ?></h3>
@@ -122,7 +123,7 @@ include('trand.php');
                     <p>model<?php echo $rental['model']; ?></p>
                     <h2>price<?php echo $rental['rental_price']; ?></h2>
                 </div>
-            </div>     
+            </a>     
         <?php endforeach; ?>
         <div class="tcar"><img src="./img/car2.png" alt=""><div class="car_deta">fgfgd</div></div>
     </div>  
