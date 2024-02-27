@@ -10,7 +10,7 @@
 <body>
 <?php
     include('nav.php');
-include('trand.php');
+    include('trand.php');
 ?>
 <!-- Hero Section -->
 <style>
@@ -76,7 +76,24 @@ include('trand.php');
         <img src="./img/car3.png" alt=""> 
     </div>
 </section>
+<script>
 
+    const img_items = document . querySelectorAll("img");
+    function showNextimg() {
+        const itemCount = img_items . length;
+        img_items[count].classList.remove("active");
+    
+        if (count < itemCount - 1) {
+        count++;
+        } else {
+        count = 0;
+        }
+        img_items[count].classList.add("active");
+    }
+    
+    setInterval(showNextimg, 3000);
+
+</script>
 
 <!-- Trending Cars Section -->
 <section id="trending-cars">
@@ -241,23 +258,6 @@ include('footer.php');
 
 <!-- Add your JavaScript scripts here -->
 
-<script>
 
-    const img_items = document . querySelectorAll("img");
-    function showNextimg() {
-        const itemCount = img_items . length;
-        img_items[count].classList.remove("active");
-    
-        if (count < itemCount - 1) {
-        count++;
-        } else {
-        count = 0;
-        }
-        img_items[count].classList.add("active");
-    }
-    
-    setInterval(showNextimg, 3000);
-
-</script>
 </body>
 </html>

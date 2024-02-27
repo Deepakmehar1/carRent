@@ -2,8 +2,9 @@
 // Database connection
 include 'sysconfig/mysql.php';
 
-session_start();
-
+if (isset($_COOKIE['user_data'])) {
+    $user_data = unserialize($_COOKIE['user_data']);
+}
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -72,7 +73,7 @@ $conn->close();
 </head>
 <body>
     <h2><?php echo $car['make']; ?></h2>
-    <h2><?php echo $_SESSION['user_id']; ?></h2>
+    <h2><?php echo $user_data['user_id']; ?></h2>
     <div><?php echo $car['model']; ?></div>
     <div><?php echo $car['rental_price']; ?></div>
     <div><?php echo $car['year']; ?></div>
