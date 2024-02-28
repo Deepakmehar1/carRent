@@ -10,7 +10,7 @@
 <body>
 <?php
     include('nav.php');
-    include('trand.php');
+include('trand.php');
 ?>
 <!-- Hero Section -->
 <style>
@@ -103,7 +103,7 @@
             justify-content: space-evenly;
             align-items: center;
             gap: 32px;
-        
+            overflow-x: scroll;
         }.tcar {
             text-decoration:none;
             width: 300px;
@@ -154,7 +154,7 @@
             justify-content: space-evenly;
             align-items: center;
             gap: 32px;
-        
+            overflow-x: scroll;
         }.hrcar {
             text-decoration:none;
             width: 300px;
