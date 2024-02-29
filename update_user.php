@@ -54,25 +54,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Car</title>
-</head>
-<body>
-    <h2>Edit Car</h2>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?user_id=' . $user_id; ?>" method="post">
-        <label for="username">username:</label><br>
-        <input type="text" id="username" name="username" value="<?php echo $user['username']; ?>" required><br><br>
-        <label for="password">password:</label><br>
-        <input type="password" id="password" name="password" placeholder="New Pasword" required><br><br>
-        <label for="email">email:</label><br>
-        <input type="email" id="email" name="email" value="<?php echo $user['email']; ?>" required><br><br>
-        
-        <input type="submit" value="Update user">
-    </form>
-</body>
-</html>

@@ -211,7 +211,7 @@ include('trand.php');
 <section id="contact" class="contact">
     <style>
         .contact{
-            display:flex;
+            display:flex;justify-content: space-evenly;
         }.cright {
 position:relative;
 
@@ -222,7 +222,7 @@ position:relative;
     position: absolute;
     display: flex;
     flex-direction: column;
-    left: 20%;
+    left: 40%;
    
     gap: 5px;
 }.social a {
@@ -232,6 +232,7 @@ position:relative;
     text-align: center;
 } .cleft h2   {transform: rotate(90deg);
     position: relative;
+    font-size:2rem;
        left: -15%;}
     </style>
     <div class="cleft">
@@ -246,20 +247,70 @@ position:relative;
     transform: rotate(90deg);">
     </div>
     <div class="cright">
-    <h2>Contact Us</h2>
+   
     <!-- Add contact information here -->
-     <form action="addonfunc/cmail.php" method="post">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" required></textarea><br><br>
-        <input type="submit" value="Submit">
-    </form> <hr style="    width: 200px;
-    transform: rotate(90deg);    position: absolute;
-    top: 50%;
-    left: 100%;"> 
+     
+    <div class="edit" >
+    <style>.edit {
+  
+  background: wheat;
+  
+ 
+  
+   padding: 40px;
+ 
+  
+transform: scale(.8);
+
+}.edit h5 {
+  font-size: 2vmax;
+  line-height: 0;
+}
+
+.edit .inputs {
+  overflow: hidden;
+}
+.edit input,.edit textarea{
+  width: 100%;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #b0b3b9;
+}
+
+.edit input[type="submit"] {
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 35px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  box-shadow: 0px 4px 20px 0px #49c628a6;
+  background-image: linear-gradient(135deg, #70f570 10%, #49c628 100%);
+}
+
+</style>
+        <h5>Contact Us</h5>
+        
+        <form method="post" action="addonfunc/cmail.php" class="inputs">
+          <input type="text" placeholder="name" id="name" name="name" value="<?php if (isset($_COOKIE['user_data'])) { echo $user_data['username'];} ?>" required/>
+          <br />
+          <input type="email" placeholder="Email" id="email" name="email" value="<?php if (isset($_COOKIE['user_data'])) {
+    echo $user_data['email'];
+} ?>" required/>
+          <br />
+          <textarea id="message" name="message" rows="4" required placeholder="message" ></textarea>
+          <br /><br />
+  
+         
+          <input type="submit" value="Connect">
+        </form>
+
+        
+    </div>
 </div>
 </section>
 

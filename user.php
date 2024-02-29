@@ -50,15 +50,15 @@ $conn->close();
     <title>user profile</title>
      <link rel="stylesheet" href="style.css" />
     <style>
-      .top {
-        height: 30%;
-        display: flex;
-        align-items: center;
-        gap: 50px;
-      }.top a{    position: absolute;
-    top: 10%;
-    right: 10%;
-}
+        .top {
+          height: 30%;
+          display: flex;
+          align-items: center;
+          gap: 50px;
+        }.top .ed{    position: absolute;
+          top: 10%;
+          right: 10%;
+      }
       .user_img img {
         height: 200px;
         width: 200px;
@@ -96,7 +96,7 @@ $conn->close();
 }
     </style>
   </head>
-  <body><?php include('nav.php');
+  <body style="position:relative;"><?php include('nav.php');
 ?>
     <main>
       <div class="top">
@@ -105,7 +105,7 @@ $conn->close();
           username:- <?php echo $user_data['username'];?> <br />
           email:- <?php echo $user_data['email'];?>
         </div>
-        <a href="update_user.php">Edit</a>
+        <div class="ed">Edit</div>
       </div>
       <div class="bottom">
         <h1 style="text-align: center">history</h1>
@@ -136,6 +136,97 @@ border-spacing: 0; text-align: center; "
           </table>
         </div>
       </div>
-    </main> <?php include('footer.php');?>
+    </main> 
+    <div class="edit" style="display:none;">
+    <style>.edit {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  background: wheat;
+  transform: translate(-50%, -50%);
+  border-radius: 16px;
+  filter: drop-shadow(2px 4px 6px black);
+   padding: 40px;
+  overflow: hidden;
+}.edit h5 {
+  font-size: 2vmax;
+  line-height: 0;
+}
+.edit p {
+    position: absolute;
+    top: 6%;
+    right: 15%;
+}
+.edit .inputs {
+  overflow: hidden;
+}
+.edit input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #b0b3b9;
+}
+
+.edit input[type="submit"] {
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 35px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  box-shadow: 0px 4px 20px 0px #49c628a6;
+  background-image: linear-gradient(135deg, #70f570 10%, #49c628 100%);
+}
+
+</style>
+        <h5>Update</h5><p class="cancel">c</p>
+        
+        <form method="post" action="update_user.php?user_id=<?php echo $user_Id;?>" class="inputs">
+          <input type="text" placeholder="username" id="username" name="username" value="<?php echo $user_data['username']; ?>" required/>
+          <br />
+          <input type="email" placeholder="Email" id="email" name="email" value="<?php echo $user_data['email']; ?>" required/>
+          <br />
+          <input type="password" id="password" name="password" required placeholder="password" />
+          <br /><br />
+  
+         
+          <input type="submit" value="Update">
+        </form>
+
+        
+    </div>
+    <?php include('footer.php');?>
+    <script>
+       var cancel = document.querySelector(".cancel")
+       var ed = document.querySelector(".ed")
+       var main = document.querySelector("main")
+       var footer = document.querySelector("footer")
+       var nav = document.querySelector("nav")
+       var edit = document.querySelector(".edit")
+       ed.addEventListener("click",()=>{
+
+         edit.style.display="block";
+         main.style.pointerEvents="none";
+         main.style.opacity="0.4";
+         nav.style.pointerEvents="none";
+         nav.style.opacity="0.4";
+         footer.style.pointerEvents="none";
+         footer.style.opacity="0.4";
+       })
+       cancel.addEventListener("click",()=>{
+
+         edit.style.display="none";
+         main.style.pointerEvents="all";
+         main.style.opacity="1";
+         nav.style.pointerEvents="all";
+         nav.style.opacity="1";
+         footer.style.pointerEvents="all";
+         footer.style.opacity="1";
+       })
+    </script>
   </body>
 </html>

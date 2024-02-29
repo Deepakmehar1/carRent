@@ -32,23 +32,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+
+
 <!DOCTYPE html>
-<html>
-<head>
-    <title>User Registration</title>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login Page in HTML with CSS Code Example</title>
 
-<h2>User Registration</h2>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username" required><br>
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password" required><br>
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
-    <input type="submit" value="Register">
-</form>
+    <link rel="stylesheet" href="./test.css" />
+  </head>
+  <body>
+    <div class="box-form">
+      <div class="left">
+        <div class="overlay">
+          <h1>Hello World.</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            et est sed felis aliquet sollicitudin
+          </p>
+        </div>
+      </div>
 
-</body>
+      <div class="right">
+        <h5>Register</h5>
+        <p>
+          Already have an account? <a href="
+http://localhost/car_rent/login.php
+">Login Now</a> fast
+        </p>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="inputs">
+          <input type="text" placeholder="username" id="username" name="username" required/>
+          <br />
+          <input type="email" placeholder="Email" id="email" name="email" required/>
+          <br />
+          <input type="password" id="password" name="password" required placeholder="password" />
+          <br /><br />
+  
+         
+          <input type="submit" value="register">
+        </form>
+
+      </div>
+    </div>
+  </body>
 </html>
