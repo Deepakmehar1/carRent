@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $row['user_id'];
 
 
-            
+
             // Serialize user data to store in the cookie
             $serialized_data = serialize($row);
 
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             setcookie('user_data', $serialized_data, time() + (86400 * 30), "/"); // Cookie expires in 30 days
 
             // Redirect to dashboard or any other page
-            header("Location: nav.php");
+            header("Location: /car_rent/");
             exit();
         } else {
             // Incorrect password
@@ -50,21 +50,44 @@ $conn->close();
 ?>
 
 <!DOCTYPE html>
-<html>
-<head>
-    <title>User Login</title>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login Page in HTML with CSS Code Example</title>
 
-<h2>User Login</h2>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    <label for="email_id">Email:</label><br>
-    <input type="email" id="email_id" name="email_id" required><br>
-    <label for="password">Password:</label><br>
-    <input type="password" id="password" name="password" required><br><br>
-    <input type="submit" value="Login">
-</form>
-        
-    
-</body>
+    <link rel="stylesheet" href="./test.css" />
+  </head>
+  <body>
+    <div class="box-form">
+      <div class="left">
+        <div class="overlay">
+          <h1>Hello World.</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+            et est sed felis aliquet sollicitudin
+          </p>
+        </div>
+      </div>
+
+      <div class="right">
+        <h5>Login</h5>
+        <p>
+          Don't have an account? <a href="
+http://localhost/car_rent/register.php
+">Creat Your Account</a> it takes
+          less than a minute
+        </p>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="inputs">
+          <input type="email" placeholder="Email" id="email_id" name="email_id" required/>
+          <br />
+          <input type="password" id="password" name="password" required placeholder="password" />
+          <br /><br />
+  
+         
+          <input type="submit" value="Login">
+        </form>
+
+      </div>
+    </div>
+  </body>
 </html>

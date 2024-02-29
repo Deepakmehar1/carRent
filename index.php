@@ -208,7 +208,44 @@ include('trand.php');
 </section>
 
 <!-- Small Contact Section -->
-<section class="contact">
+<section id="contact" class="contact">
+    <style>
+        .contact{
+            display:flex;
+        }.cright {
+position:relative;
+
+        }.cleft {
+            position:relative;display: flex;
+    align-items: center;
+        }.social {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 20%;
+   
+    gap: 5px;
+}.social a {
+    width: 35px;
+    height: 35px;
+    background: #2b2b2b;
+    text-align: center;
+} .cleft h2   {transform: rotate(90deg);
+    position: relative;
+       left: -15%;}
+    </style>
+    <div class="cleft">
+        <h2>social media</h2>
+        <div class="social">
+            <a href="">i</a>
+            <a href="">i</a>
+            <a href="">i</a>
+            <a href="">i</a>
+        </div>
+        <hr style="    width: 200px;
+    transform: rotate(90deg);">
+    </div>
+    <div class="cright">
     <h2>Contact Us</h2>
     <!-- Add contact information here -->
      <form action="addonfunc/cmail.php" method="post">
@@ -219,7 +256,11 @@ include('trand.php');
         <label for="message">Message:</label><br>
         <textarea id="message" name="message" rows="4" required></textarea><br><br>
         <input type="submit" value="Submit">
-    </form>
+    </form> <hr style="    width: 200px;
+    transform: rotate(90deg);    position: absolute;
+    top: 50%;
+    left: 100%;"> 
+</div>
 </section>
 
 <!-- #FAQ or Q&A Section -->

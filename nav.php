@@ -53,16 +53,42 @@
   nav ul li a:hover::after {
     width: 110%;
   }
-  .right {
+ /*  .right {
     display: flex;
     gap: 5px;
     justify-content: space-between;
-  }
+  } */
   .right .lore{
     text-decoration: none;
     padding: 4px 6px;
     border:.1px solid;
     border-radius: 20px;
+  }
+  .right-contain .navItem{ text-decoration: none; color:white;    font-size: 24px;}
+  .right {
+    position: relative;
+  }
+  .right-contain {
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    right: -2px;
+    flex-direction: column;
+    height: 0;
+    transition: 0.6s;
+    padding: 4px;
+    top: 30px;
+    gap:4px;    border-radius: 8px;
+}
+  .right:hover > .right-contain {
+    background-color: #2b2b2b;
+    height: 128px;
+  }
+  .right-p{
+    border-radius: 50%;
+        background-color: blue;
+        height: 20px;
+        width: 20px;
   }
 </style>
 <nav>
@@ -78,26 +104,32 @@
           <a class="navitem" href="/car_rent/about.php"> About</a>
         </li>
         <li>
-          <a class="navitem" href="/car_rent/contact.php"> Contact</a>
+          <a class="navitem" href="/car_rent/#contact"> Contact</a>
         </li>
       </ul>
-      <div class="right"><?php
+      <div class="right">
+        
+        <?php
         if (isset($_COOKIE['user_data'])) {
+            echo ' <div class="right-p">i</div>';
+            echo '<div class="right-contain">';
             echo '<a href="/car_rent/user.php" class="navItem">profile</a>';
-            echo '<a href="/car_rent/rantals.php" class="navItem">HISTORY</a>';
-            echo '<a href="/car_rent/logout.php" class="navItem">LOGOUT</a>';
-
+            echo '<a href="/car_rent/user.php#history" class="navItem">HISTORY</a>';
             $user_data = unserialize($_COOKIE['user_data']);
 
             if ($user_data['admin'] == 'yehh') {
                 echo '<a href="/car_rent/admin.php" class="navItem">ADMIN</a>';
             }
+            echo '<a href="/car_rent/logout.php" class="navItem">LOGOUT</a>';
 
+            echo '</div>';
 
         } else {
-          echo '<a href="/car_rent/register.php" class="navItem lore" style="color: black;">REGISTER</a>';
-          echo '<a href="/car_rent/login.php" class="navItem lore" style="color: lightseagreen;">LOGIN</a>';
-        }?></div>
+            echo '<a href="/car_rent/register.php" class="navItem lore" style="color: black;">REGISTER</a>';
+            echo '<a href="/car_rent/login.php" class="navItem lore" style="color: lightseagreen;">LOGIN</a>';
+        }?>
+      </div>
+        
 </nav>
 <script>
       function stick_navigatio() {
