@@ -98,6 +98,12 @@ include('trand.php');
 <!-- Trending Cars Section -->
 <section id="trending-cars">
     <style>
+        section:nth-child(2n) {
+    background: #bafffa;
+}
+        section {
+    margin: 50px 0;
+}
         .trand_container {
             display: flex;
             justify-content: space-evenly;
@@ -253,7 +259,9 @@ position:relative;
     <div class="edit" >
     <style>.edit {
   
-  background: wheat;
+  background: 
+#98c3c0
+;
   
  
   
@@ -296,11 +304,13 @@ transform: scale(.8);
         <h5>Contact Us</h5>
         
         <form method="post" action="addonfunc/cmail.php" class="inputs">
-          <input type="text" placeholder="name" id="name" name="name" value="<?php if (isset($_COOKIE['user_data'])) { echo $user_data['username'];} ?>" required/>
+          <input type="text" placeholder="name" id="name" name="name" value="<?php if (isset($_COOKIE['user_data'])) {
+              echo $user_data['username'];
+          } ?>" required/>
           <br />
           <input type="email" placeholder="Email" id="email" name="email" value="<?php if (isset($_COOKIE['user_data'])) {
-    echo $user_data['email'];
-} ?>" required/>
+              echo $user_data['email'];
+          } ?>" required/>
           <br />
           <textarea id="message" name="message" rows="4" required placeholder="message" ></textarea>
           <br /><br />
@@ -345,7 +355,7 @@ transform: scale(.8);
 
 <!-- footer -->
 <?php
-include('footer.php');
+          include('footer.php');
 ?>
 
 <!-- Add your JavaScript scripts here -->

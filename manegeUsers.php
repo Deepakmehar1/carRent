@@ -30,15 +30,31 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Cars</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table.zebra {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        table.zebra tr:nth-child(2n) {
+          background: #aef7ff;
+        }
+        table.zebra td {
+          padding: 10px;
+        }
+        </style>
 </head>
-<body>
-    <h2>Manage user</h2>
-            <table border="1">
+<body><?php include('nav.php'); ?>
+    <main style="    position: relative;
+    min-height: 58.3vh;">
+    <h1>Manage user</h1>
+        <table class="zebra">
                 <tr>
-                    <th>ID</th>
-                    <th>name</th>
-                    <th>email</th>
-                    <th>restriction</th>
+                    <td>ID</td>
+                    <td>name</td>
+                    <td>email</td>
+                    <td>restriction</td>
+                    <td>Action</td>
                     
                 </tr>
                 <?php foreach ($users as $user): ?>
@@ -72,5 +88,12 @@ $conn->close();
 
 
     
+      
+
+      
+    </main>
+    
+    <?php include('footer.php'); ?>
+
 </body>
 </html>
