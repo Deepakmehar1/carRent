@@ -9,7 +9,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch cars from database
-$sql = "SELECT car_id,make,model,rental_price FROM cars";
+$sql = "SELECT * FROM cars";
 $result = $conn->query($sql);
 
 $cars = [];
@@ -58,6 +58,7 @@ $conn->close();
             }
             .car .car_img { text-align: center;
 background: #363636;
+display: flex;align-items: center;justify-content: center;
 }
             .car img {
     height: 104px;
@@ -88,7 +89,7 @@ background: #363636;
         <div class="car_container">
             <?php foreach ($cars as $car): ?>
             <div class="car">
-                <a href="http://localhost/car_rent/car.php?car_id=<?php echo $car['car_id'];?>" class="car_img"><img src="./img/car2.png" alt=""></a>
+                <a href="http://localhost/car_rent/car.php?car_id=<?php echo $car['car_id'];?>" class="car_img"><img src="<?php echo $car['car_img'];?>" alt=""></a>
                 <div class="other_deta">
                     <div class="short_deta">
                         <div><?php echo $car['make']; ?></div>

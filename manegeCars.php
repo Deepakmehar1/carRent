@@ -41,14 +41,15 @@ $conn->close();
         }
         .edit {
           position: absolute;
-          top: 40%;
+          top: 50%;
           left: 50%;
           background: wheat;
           transform: translate(-50%, -50%);
           border-radius: 16px;
           filter: drop-shadow(2px 4px 6px black);
           padding: 40px;
-          overflow: hidden;
+          overflow: hidden;    z-index: 5;
+
         }
         .edit h5 {
           font-size: 2vmax;
@@ -99,8 +100,8 @@ $conn->close();
   </head>
   <body>
     <?php include('nav.php'); ?>
-    <main style="    position: relative;
-    min-height: 58.3vh;">
+    <main style="position: relative;
+       min-height: 58.3vh;">
       <div class="ed">Add Cars</div>
 
       <div class="car-detail">
@@ -142,10 +143,10 @@ $conn->close();
       </div>
     </main>
     <div class="edit" style="display: none">
-      <h5>Update</h5>
+      <h5>Add Car</h5>
       <p class="cancel">c</p>
 
-      <form action="save_car.php" method="post" class="inputs">
+      <form action="save_car.php" method="post" class="inputs" enctype="multipart/form-data">
         <input
           type="text"
           id="make"
@@ -168,13 +169,14 @@ $conn->close();
           required
         /><br />
         <input
-          type="number"
-          id="rental_price"
-          name="rental_price"
-          step="0.01"
-          placeholder="rent price per day"
-          required
+        type="number"
+        id="rental_price"
+        name="rental_price"
+        step="0.01"
+        placeholder="rent price per day"
+        required
         /><br />
+        <input type="file" id="car_img" name="car_img" accept="image/*" required><br>
         <br />
 
         <input type="submit" value="Add Car" />

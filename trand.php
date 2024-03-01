@@ -8,7 +8,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT rentals.car_id, cars.model, cars.make, cars.rental_price, COUNT(*) AS total_occurrences 
+$sql = "SELECT rentals.car_id, cars.model, cars.make,cars.car_img, cars.rental_price, COUNT(*) AS total_occurrences 
 FROM rentals 
 INNER JOIN cars ON rentals.car_id = cars.car_id 
 GROUP BY rentals.car_id, cars.model, cars.make, cars.rental_price

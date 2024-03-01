@@ -166,7 +166,7 @@ color: #5b5b5b;
         </h2>
       </div>
       <div class="car_img">
-        <img src="./img/car2.png" alt="" />
+        <img src="<?php echo $car['car_img'];?>" alt="" />
       </div>
     </div>
 

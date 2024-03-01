@@ -171,7 +171,11 @@ $conn->close();
                 <?php endforeach; ?>
             </table>
 
-            <a href="manegeCars.php">manegeCars</a>
+            <a href="manegeCars.php" style="
+    position: absolute;
+    top: 5%;
+    right: 5%;
+">manegeCars</a>
           </div>
           <hr />
           <div class="l-bottom">
@@ -195,7 +199,11 @@ $conn->close();
                 </tr>
                 <?php endforeach; ?>
             </table>
-            <a href="manegeUsers.php">manegeUsers</a>
+            <a href="manegeUsers.php" style="
+    position: absolute;
+    top: 5%;
+    right: 5%;
+">manegeUsers</a>
 
           </div>
         </div>

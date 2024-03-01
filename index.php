@@ -139,7 +139,9 @@ include('trand.php');
     <div class="trand_container">
         <?php foreach ($rentals as $rental): ?>
             <a href=<?php echo "/car_rent/car.php?car_id=" . $rental['car_id'];?> class="tcar">
-                <img src="./img/car2.png" alt="">
+                <img src="<?php echo
+$rental['car_img'];
+            ?>" alt="">
                 <div class="car_deta">
                     <h3>carId:<?php echo $rental['car_id']; ?></h3>
                     <p>make<?php echo $rental['make']; ?></p>
@@ -169,7 +171,7 @@ include('trand.php');
             border: 2px solid black;
             border-radius: 8px;
             display: flex;
-            justify-content: center;
+            justify-content: center;    padding: 8px;
         }
         .hrcar img{
             height: 150px;
@@ -191,7 +193,9 @@ include('trand.php');
     <div class="high_rate_container">
         <?php foreach ($topcars as $topcar): ?>
             <a href=<?php echo "/car_rent/car.php?car_id=" . $topcar['car_id'];?> class="hrcar">
-                <img src="./img/car2.png" alt="">
+                <img src="<?php echo
+            $topcar['car_img'];
+            ?>" alt="">
                 <div class="car_deta">
                     <h3>carId:<?php echo $topcar['car_id']; ?></h3>
                     <p>make<?php echo $topcar['make']; ?></p>
@@ -209,7 +213,7 @@ include('trand.php');
     <h2>What Our Customers Say</h2>
     <!-- Add testimonial slider here -->
     <?php
-        include('testimonial.php');
+                    include('testimonial.php');
 ?>
 </section>
 

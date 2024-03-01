@@ -58,7 +58,7 @@ include('trand.php');
         font-size: 16px;
       }
       .car_left .car_img{display: flex; justify-content: center;background: lightseagreen;
-    border-radius: 16px;}
+    border-radius: 16px;padding: 16px;}
       .car_left img {
         width: 662px;
        
@@ -130,7 +130,7 @@ include('trand.php');
     <div class="car_main">
       <div class="car_left">
         <div class="car_img">
-        <img src="./img/car2.png" alt="" /></div>
+        <img src="<?php echo $car['car_img']; ?>" alt="" /></div>
         <div class="details">
           <div class="cdeta">
             <span>make</span>
@@ -169,7 +169,7 @@ right: 0; margin-right: 8px;">
     <div class="high_rate_container">
         <?php foreach ($topcars as $topcar): ?>
             <a href=<?php echo "/car_rent/car.php?car_id=" . $topcar['car_id'];?> class="hrcar">
-                <img src="./img/car2.png" alt="">
+                <img src="<?php echo $topcar['car_img']; ?>" alt="">
                 <div class="car_deta">
                     <h3>carId:<?php echo $topcar['car_id']; ?></h3>
                     <p>make<?php echo $topcar['make']; ?></p>
@@ -178,17 +178,7 @@ right: 0; margin-right: 8px;">
                 </div>
             </a>     
         <?php endforeach; ?>
-        <?php foreach ($topcars as $topcar): ?>
-            <a href=<?php echo "/car_rent/car.php?car_id=" . $topcar['car_id'];?> class="hrcar">
-                <img src="./img/car2.png" alt="">
-                <div class="car_deta">
-                    <h3>carId:<?php echo $topcar['car_id']; ?></h3>
-                    <p>make<?php echo $topcar['make']; ?></p>
-                    <p>model<?php echo $topcar['model']; ?></p>
-                    <h2>price<?php echo $topcar['rental_price']; ?></h2>
-                </div>
-            </a>     
-        <?php endforeach; ?>
+        
     </div>  
       </div>
     </div>
