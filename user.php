@@ -60,15 +60,17 @@ $conn->close();
           right: 10%;
       }
       .user_img img {
-        height: 200px;
-        width: 200px;
-        object-fit: contain;
-      }
+    height: 192px;
+    width: 192px;
+    object-fit: contain;
+    border-radius: 50%;
+}
       .user_img {
-        background-color: red;
+        background-color: #befffd;
         border-radius: 50%;
         height: 200px;
         width: 200px;
+        padding:4px;    filter: drop-shadow(0px 0px 3px #194e4d);
       }
       .bottom {
         height: 70%;
@@ -92,7 +94,7 @@ $conn->close();
 } main{
     display: flex;
     flex-direction: column;
-    padding: 16px;
+    padding: 16px;    min-height: 58.2vh;
 }
     </style>
   </head>
@@ -100,7 +102,7 @@ $conn->close();
 ?>
     <main>
       <div class="top">
-        <div class="user_img"><img src="./img/car2.png" alt="" /></div>
+        <div class="user_img"><img src="<?php echo $user_data['user_img'];?>" alt="" /></div>
         <div class="user_detail">
           username:- <?php echo $user_data['username'];?> <br />
           email:- <?php echo $user_data['email'];?>
@@ -180,10 +182,10 @@ border-spacing: 0; text-align: center; "
   outline: 0;
   box-shadow: 0px 4px 20px 0px #49c628a6;
   background-image: linear-gradient(135deg, #70f570 10%, #49c628 100%);
-}
+}.edit img{width:16px;}
 
 </style>
-        <h5>Update</h5><p class="cancel">c</p>
+        <h5>Update</h5><p class="cancel"><img style="width:16px;" src="./img/close.png" alt=""></p>
         
         <form method="post" action="update_user.php?user_id=<?php echo $user_Id;?>" class="inputs">
           <input type="text" placeholder="username" id="username" name="username" value="<?php echo $user_data['username']; ?>" required/>

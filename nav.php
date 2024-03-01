@@ -77,22 +77,29 @@
     height: 0;
     transition: 0.6s;
     padding: 4px;
-    top: 30px;
+    top: 40px;
     gap:4px;    border-radius: 8px;
 }
   .right:hover > .right-contain {
     background-color: #2b2b2b;
-    height: 128px;
+    height: auto;
   }
   .right-p{
     border-radius: 50%;
         background-color: blue;
-        height: 20px;
-        width: 20px;
+            height: 32px;
+    width: 32px;
+    text-align: center;
+  }
+  .right-p img{
+    border-radius: 50%;
+    object-fit: contain;
+    height: 32px;
+    width: 32px;
   }
 </style>
 <nav>
-      <div class="left">DEEPAK</div>
+      <div class="left">GHOSTCAR</div>
       <ul id="middle">
         <li>
           <a class="navitem" href="/car_rent/"> Home</a>
@@ -107,15 +114,15 @@
           <a class="navitem" href="/car_rent/#contact"> Contact</a>
         </li>
       </ul>
+      
       <div class="right">
-        
         <?php
         if (isset($_COOKIE['user_data'])) {
-            echo ' <div class="right-p">i</div>';
+          $user_data = unserialize($_COOKIE['user_data']);
+            echo ' <div class="right-p"><img src="'. $user_data['user_img'].' "alt=""></div>';
             echo '<div class="right-contain">';
             echo '<a href="/car_rent/user.php" class="navItem">profile</a>';
             echo '<a href="/car_rent/user.php#history" class="navItem">HISTORY</a>';
-            $user_data = unserialize($_COOKIE['user_data']);
 
             if ($user_data['admin'] == 'yehh') {
                 echo '<a href="/car_rent/admin.php" class="navItem">ADMIN</a>';

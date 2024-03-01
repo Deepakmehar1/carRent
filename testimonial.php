@@ -13,6 +13,11 @@
     background: transparent;
     padding: 20px 5px;
     font-size: 2rem;
+  }.previous img{
+        transform: rotate(180deg);
+  }
+  .next img,.previous img{
+    height:50px
   }
   .container {
     width: 70%;
@@ -40,7 +45,7 @@
   
 </style>
 <div class="slider">
-  <button class="previous">pich</button>
+  <button class="previous"><img src="./img/right-arrow.png" alt="new" class="next"></button>
   <div class="container">
     <div class="active elem">
         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget magna in libero pharetra placerat. Etiam at eros ac justo lobortis fermentum."</p>
@@ -52,7 +57,8 @@
     </div>
   
   </div>
-  <button class="next">new</button>
+  <!-- <img src="./img/right-arrow.png" alt="new" class="next"> -->
+  <button class="next"><img src="./img/right-arrow.png" alt="new"></button>
 </div>
 <script>
   const items = document.querySelectorAll(".elem");
@@ -72,7 +78,6 @@
     }
 
     items[count].classList.add("active");
-    console.log(count);
   }
 
   function showPreviousItem() {

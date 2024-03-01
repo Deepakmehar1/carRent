@@ -134,10 +134,7 @@ color: #5b5b5b;
 
     <div class="car_booking">
       <div class="car_detail">
-        <h2>
-          <span>user name:- </span>
-          <?php echo $user_data['username']; ?>
-        </h2>
+        
         <h2>
           <span>make:-</span
           ><?php echo $car['make']; ?>

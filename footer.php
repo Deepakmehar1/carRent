@@ -142,8 +142,9 @@
 .footer-distributed .footer-icons{
 	margin-top: 25px;
 }
-
+.footer-distributed .footer-icons a img{    width: 35px;}
 .footer-distributed .footer-icons a{
+
 	display: inline-block;
 	width: 35px;
 	height: 35px;
@@ -187,7 +188,7 @@
 
 			<div class="footer-left">
 
-				<h3><span>logo</span></h3>
+				<h3><span>GHOSTCAR</span></h3>
 
 				<p class="footer-links">
 					<a href="/car_rent/" class="link-1">Home</a>
@@ -196,7 +197,7 @@
 				
                     
 					<a href="/car_rent/about.php">About</a>
-					<a href="/car_rent/contact.php">Contact</a>
+					<a href="/car_rent/#contact">Contact</a>
 					
 					<a href="/car_rent/#faq">Faq</a>
 					
@@ -220,7 +221,7 @@
 
 				<div>
 					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">support@company.com</a></p>
+					<p><a href="mailto:support@company.com">support@ghostcar.com</a></p>
 				</div>
 
 			</div>
@@ -234,10 +235,10 @@
 
 				<div class="footer-icons">
 
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-linkedin"></i></a>
-					<a href="#"><i class="fa fa-github"></i></a>
+					<a href="#"><img src="./img/whatsapp.png" alt=""></a>
+					<a href="#"><img src="./img/twitter.png" alt=""></a>
+					<a href="#"><img src="./img/linkedin.png" alt=""></a>
+					<a href="#"><img src="./img/instagram.png" alt=""></a>
 
 				</div>
 

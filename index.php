@@ -19,13 +19,14 @@ include('trand.php');
     position: absolute;
     text-decoration: none;
     color: white;
-    background: lightseagreen;
+    background: #2a2a2a;
     padding: 10px;
     border-radius: 20px;
     }
     .hero{
+        margin-top: 0;
         height: 60vh;
-        position: relative;
+        position: relative;background-image: linear-gradient(312deg, #1d1d1d 10%, #20b2aa 100%);
     }.hero-left {
         display: inline;
         position: absolute;
@@ -98,7 +99,7 @@ include('trand.php');
 <!-- Trending Cars Section -->
 <section id="trending-cars">
     <style>
-        section:nth-child(2n) {
+        section#contact {
     background: #bafffa;
 }
         section {
@@ -118,7 +119,7 @@ include('trand.php');
             border: 2px solid;
             border-radius: 8px;
             display: flex;
-            justify-content: center;
+            justify-content: center;color:black;
         }
         .tcar img{
             height: 150px;
@@ -127,36 +128,49 @@ include('trand.php');
         .tcar .car_deta{
             display: none;
             position: absolute;
-            top: 0;
-            left: 0;
+          top: 25%;
+    text-align: center;
+        }
+        .tcar:hover > img{
+                filter: blur(4px);
         }
         .tcar:hover .car_deta{
             display: block;
-        }
+        }.tcar:hover .blur {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #a2fff054;
+}
 
     </style>
     <h2>Trending Cars for Rent</h2>
     <div class="trand_container">
         <?php foreach ($rentals as $rental): ?>
             <a href=<?php echo "/car_rent/car.php?car_id=" . $rental['car_id'];?> class="tcar">
+                <div class="blur"></div>
                 <img src="<?php echo
 $rental['car_img'];
             ?>" alt="">
                 <div class="car_deta">
-                    <h3>carId:<?php echo $rental['car_id']; ?></h3>
-                    <p>make<?php echo $rental['make']; ?></p>
-                    <p>model<?php echo $rental['model']; ?></p>
-                    <h2>price<?php echo $rental['rental_price']; ?></h2>
+                    <h2>carId: <?php echo $rental['car_id']; ?></h2>
+                    <h2>make: <?php echo $rental['make']; ?></h2>
+                    <h2>model: <?php echo $rental['model']; ?></h2>
+                    <h2>price: <?php echo $rental['rental_price']; ?></h2>
                 </div>
             </a>     
         <?php endforeach; ?>
-        <div class="tcar"><img src="./img/car2.png" alt=""><div class="car_deta">fgfgd</div></div>
+        <a href="/car_rent/allcars.php"class="tcar">
+            <img src="./img/car2.png" alt="">
+                <div class="blur"></div><h1 class="car_deta">All cars</h1></a>
     </div>  
 </section>
 
 <!-- Slider for Most Rented Cars -->
 <section class="most-rented">
     <style>
+        .most-rented{background: #e6e6e6;
+    padding: 0 16px;}
         .high_rate_container {
             display: flex;
             justify-content: space-evenly;
@@ -167,10 +181,12 @@ $rental['car_img'];
             text-decoration:none;
             width: 300px;
             height: 200px;
+background: #fff;
+
             position: relative;
             border: 2px solid black;
             border-radius: 8px;
-            display: flex;
+            display: flex;color:black;
             justify-content: center;    padding: 8px;
         }
         .hrcar img{
@@ -180,12 +196,20 @@ $rental['car_img'];
         .hrcar .car_deta{
             display: none;
             position: absolute;
-            top: 0;
-            left: 0;
+          top: 25%;
+    text-align: center;
+        }
+        .hrcar:hover > img{
+                filter: blur(4px);
         }
         .hrcar:hover .car_deta{
             display: block;
-        }
+        }.hrcar:hover .blur {
+    width: 286px;
+    height: 186px;
+    position: absolute;
+    background: #a2fff054;
+}
 
     </style>
     <h2>Most Rented Cars</h2>
@@ -196,15 +220,16 @@ $rental['car_img'];
                 <img src="<?php echo
             $topcar['car_img'];
             ?>" alt="">
+            <div class="blur"></div>
                 <div class="car_deta">
-                    <h3>carId:<?php echo $topcar['car_id']; ?></h3>
-                    <p>make<?php echo $topcar['make']; ?></p>
-                    <p>model<?php echo $topcar['model']; ?></p>
-                    <h2>price<?php echo $topcar['rental_price']; ?></h2>
+                    <h2>carId: <?php echo $topcar['car_id']; ?></h2>
+                    <h2>make: <?php echo $topcar['make']; ?></h2>
+                    <h2>model: <?php echo $topcar['model']; ?></h2>
+                    <h2>price: <?php echo $topcar['rental_price']; ?></h2>
                 </div>
             </a>     
         <?php endforeach; ?>
-        <a href="/car_rent/allcars.php" class="hrcar"><img src="./img/car2.png" alt=""><div class="car_deta">fgfgd</div></a>
+        <a href="/car_rent/allcars.php" class="hrcar"><img src="./img/car2.png" alt=""><h1 class="car_deta">All Cars</h1></a>
     </div>  
 </section>
 
@@ -235,10 +260,12 @@ position:relative;
     left: 40%;
    
     gap: 5px;
+}.social a img{
+    width: 35px;
 }.social a {
     width: 35px;
     height: 35px;
-    background: #2b2b2b;
+    /* background: #2b2b2b; */
     text-align: center;
 } .cleft h2   {transform: rotate(90deg);
     position: relative;
@@ -248,10 +275,10 @@ position:relative;
     <div class="cleft">
         <h2>social media</h2>
         <div class="social">
-            <a href="">i</a>
-            <a href="">i</a>
-            <a href="">i</a>
-            <a href="">i</a>
+            <a href="#"><img src="./img/whatsapp.png" alt=""></a>
+					<a href="#"><img src="./img/twitter.png" alt=""></a>
+					<a href="#"><img src="./img/linkedin.png" alt=""></a>
+					<a href="#"><img src="./img/instagram.png" alt=""></a>
         </div>
         <hr style="    width: 200px;
     transform: rotate(90deg);">

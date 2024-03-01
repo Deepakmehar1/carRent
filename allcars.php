@@ -35,7 +35,7 @@ $conn->close();
     <main class="allcars">
         <style>
             main.allcars {
-                margin-bottom: 16px;
+                margin-bottom: 16px;min-height: 56.5vh;
             }
             .car_container {
                 display: flex;
@@ -103,37 +103,7 @@ display: flex;align-items: center;justify-content: center;
                 </div>
             </div>
             <?php endforeach; ?>
-            <?php foreach ($cars as $car): ?>
-            <div class="car">
-                <a href="http://localhost/car_rent/car.php?car_id=<?php echo $car['car_id'];?>" class="car_img"><img src="./img/car2.png" alt=""></a>
-                <div class="other_deta">
-                    <div class="short_deta">
-                        <div><?php echo $car['make']; ?></div>
-                        <div><?php echo $car['model']; ?></div>
-                        <div><?php echo $car['rental_price']; ?></div>
-                    </div>
-                    <div class="car_links">
-                        <a href="http://localhost/car_rent/booking.php?car_id=<?php echo $car['car_id'];?>" class="b_now">Book Now</a>
-                        <a href="http://localhost/car_rent/car.php?car_id=<?php echo $car['car_id'];?>"style="color: #247e7e;">see details-></a>
-                    </div>
-                </div>
-            </div>
-            <?php endforeach; ?><?php foreach ($cars as $car): ?>
-            <div class="car">
-                <a href="http://localhost/car_rent/car.php?car_id=<?php echo $car['car_id'];?>" class="car_img"><img src="./img/car2.png" alt=""></a>
-                <div class="other_deta">
-                    <div class="short_deta">
-                        <div><?php echo $car['make']; ?></div>
-                        <div><?php echo $car['model']; ?></div>
-                        <div><?php echo $car['rental_price']; ?></div>
-                    </div>
-                    <div class="car_links">
-                        <a href="http://localhost/car_rent/booking.php?car_id=<?php echo $car['car_id'];?>" class="b_now">Book Now</a>
-                        <a href="http://localhost/car_rent/car.php?car_id=<?php echo $car['car_id'];?>" style="color: #247e7e;">see details-></a>
-                    </div>
-                </div>
-            </div>
-            <?php endforeach; ?>
+            
         </div>
     </main>
     <?php include('footer.php'); ?>

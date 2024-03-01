@@ -105,6 +105,7 @@ include('trand.php');
             height: 200px;
             position: relative;
             border: 2px solid black;
+            color:black;
             border-radius: 8px;
             display: flex;
             justify-content: center;
@@ -116,12 +117,19 @@ include('trand.php');
         .hrcar .car_deta{
             display: none;
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 25%;
+        }
+        .hrcar:hover > img{
+                filter: blur(4px);
         }
         .hrcar:hover .car_deta{
             display: block;
-        }
+        }.hrcar:hover .blur {
+    width: 286px;
+    height: 186px;
+    position: absolute;
+    background: #a2fff054;
+}
     </style>
   </head>
   <body>
@@ -170,11 +178,12 @@ right: 0; margin-right: 8px;">
         <?php foreach ($topcars as $topcar): ?>
             <a href=<?php echo "/car_rent/car.php?car_id=" . $topcar['car_id'];?> class="hrcar">
                 <img src="<?php echo $topcar['car_img']; ?>" alt="">
+                <div class="blur"></div>
                 <div class="car_deta">
-                    <h3>carId:<?php echo $topcar['car_id']; ?></h3>
-                    <p>make<?php echo $topcar['make']; ?></p>
-                    <p>model<?php echo $topcar['model']; ?></p>
-                    <h2>price<?php echo $topcar['rental_price']; ?></h2>
+                    <h2>carId: <?php echo $topcar['car_id']; ?></h2>
+                    <h2>make: <?php echo $topcar['make']; ?></h2>
+                    <h2>model: <?php echo $topcar['model']; ?></h2>
+                    <h2>price: <?php echo $topcar['rental_price']; ?></h2>
                 </div>
             </a>     
         <?php endforeach; ?>

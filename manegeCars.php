@@ -144,7 +144,7 @@ $conn->close();
     </main>
     <div class="edit" style="display: none">
       <h5>Add Car</h5>
-      <p class="cancel">c</p>
+      <p class="cancel"><img style="width:16px;" src="./img/close.png" alt=""></p>
 
       <form action="save_car.php" method="post" class="inputs" enctype="multipart/form-data">
         <input
