@@ -32,16 +32,7 @@ $conn->close();
     <title>Manage Cars</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        table.zebra {
-          width: 100%;
-          border-collapse: collapse;
-        }
-        table.zebra tr:nth-child(2n) {
-          background: #aef7ff;
-        }
-        table.zebra td {
-          padding: 10px;
-        }
+        
         </style>
 </head>
 <body><?php include('nav.php'); ?>

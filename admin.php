@@ -69,63 +69,8 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Manage Cars</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-      main {
-        height: 100vh;    margin: 16px 0;
-      }.top-elem {
-    height: 100px;
-    width: 200px;
-    background: #a6fffe;
-    border-radius: 16px;
-    text-align: center;
-    display: flex;
-    filter: drop-shadow(0px 0px 2px #a6f);
-    flex-direction: column;
-    justify-content: center;
-}
-      .top {
-        height: 25vh;    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-      }
-      .bottom {
-        height: 75vh;
-        display: flex;
-      }
-      .bottom-left,
-      .bottom-right {
-        width: 50%;
-      }
-      .l-bottom,
-      .l-top,
-      .bottom-right {
-        width: 100%;
-        height: 50%;
-        position: relative;
-        padding: 8px;
-        overflow-y: scroll;
-      }
-      .bottom-right {
-        width: 50%;
-        height: 100%;
-      }
-       .bottom-right a {
-        position: absolute;
-        top: 0;
-        right: 0;
-      }
-      /* (E) ZEBRA TABLE */
-      table.zebra {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      table.zebra tr:nth-child(2n) {
-        background: #aef7ff;
-      }
-      table.zebra td {
-        padding: 10px;
-      }
-    </style>
+     <link rel="stylesheet" href="user.css" />
+
 </head>
 <body>
   <?php
@@ -135,7 +80,7 @@ $conn->close();
         <h1>Admin Dashboard</h1>
     </header>
   
-    <main>
+    <main class="admin_main">
     
       <div class="top">
         <div class="top-elem">

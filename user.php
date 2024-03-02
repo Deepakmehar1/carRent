@@ -49,58 +49,14 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>user profile</title>
      <link rel="stylesheet" href="style.css" />
+     <link rel="stylesheet" href="user.css" />
     <style>
-        .top {
-          height: 30%;
-          display: flex;
-          align-items: center;
-          gap: 50px;
-        }.top .ed{    position: absolute;
-          top: 10%;
-          right: 10%;
-      }
-      .user_img img {
-    height: 192px;
-    width: 192px;
-    object-fit: contain;
-    border-radius: 50%;
-}
-      .user_img {
-        background-color: #befffd;
-        border-radius: 50%;
-        height: 200px;
-        width: 200px;
-        padding:4px;    filter: drop-shadow(0px 0px 3px #194e4d);
-      }
-      .bottom {
-        height: 70%;
-        display: flex;
-        flex-direction: column;
-      }
-      tr:nth-child(1) {
-        background: lightseagreen !important;
-      }
-      tr:nth-child(2n + 1) {
-        background: #5b5b5b;
-      }
-      tr:nth-child(2n) {
-        background: #7a7a7a;
-      }
-      tr:hover {
-        background: #b2f5f1;
-      }td {
-    padding: 10px;
-    font-weight: 400;
-} main{
-    display: flex;
-    flex-direction: column;
-    padding: 16px;    min-height: 58.2vh;
-}
+        
     </style>
   </head>
   <body style="position:relative;"><?php include('nav.php');
 ?>
-    <main>
+    <main class="user_main">
       <div class="top">
         <div class="user_img"><img src="<?php echo $user_data['user_img'];?>" alt="" /></div>
         <div class="user_detail">
@@ -140,49 +96,7 @@ border-spacing: 0; text-align: center; "
       </div>
     </main> 
     <div class="edit" style="display:none;">
-    <style>.edit {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  background: wheat;
-  transform: translate(-50%, -50%);
-  border-radius: 16px;
-  filter: drop-shadow(2px 4px 6px black);
-   padding: 40px;
-  overflow: hidden;
-}.edit h5 {
-  font-size: 2vmax;
-  line-height: 0;
-}
-.edit p {
-    position: absolute;
-    top: 6%;
-    right: 15%;
-}
-.edit .inputs {
-  overflow: hidden;
-}
-.edit input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 25px;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  border-bottom: 2px solid #b0b3b9;
-}
-
-.edit input[type="submit"] {
-  color: #fff;
-  font-size: 16px;
-  padding: 12px 35px;
-  border-radius: 50px;
-  display: inline-block;
-  border: 0;
-  outline: 0;
-  box-shadow: 0px 4px 20px 0px #49c628a6;
-  background-image: linear-gradient(135deg, #70f570 10%, #49c628 100%);
-}.edit img{width:16px;}
+    <style>
 
 </style>
         <h5>Update</h5><p class="cancel"><img style="width:16px;" src="./img/close.png" alt=""></p>
@@ -202,33 +116,8 @@ border-spacing: 0; text-align: center; "
         
     </div>
     <?php include('footer.php');?>
-    <script>
-       var cancel = document.querySelector(".cancel")
-       var ed = document.querySelector(".ed")
-       var main = document.querySelector("main")
-       var footer = document.querySelector("footer")
-       var nav = document.querySelector("nav")
-       var edit = document.querySelector(".edit")
-       ed.addEventListener("click",()=>{
+<script src="script.js"></script>
+<script>card_apear()</script>
 
-         edit.style.display="block";
-         main.style.pointerEvents="none";
-         main.style.opacity="0.4";
-         nav.style.pointerEvents="none";
-         nav.style.opacity="0.4";
-         footer.style.pointerEvents="none";
-         footer.style.opacity="0.4";
-       })
-       cancel.addEventListener("click",()=>{
-
-         edit.style.display="none";
-         main.style.pointerEvents="all";
-         main.style.opacity="1";
-         nav.style.pointerEvents="all";
-         nav.style.opacity="1";
-         footer.style.pointerEvents="all";
-         footer.style.opacity="1";
-       })
-    </script>
   </body>
 </html>

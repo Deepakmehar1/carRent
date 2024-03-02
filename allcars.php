@@ -29,62 +29,11 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghosts Cars</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="car.css">
 </head>
 <body>
     <?php include('nav.php'); ?>
     <main class="allcars">
-        <style>
-            main.allcars {
-                margin-bottom: 16px;min-height: 56.5vh;
-            }
-            .car_container {
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-                gap: 32px;
-                flex-wrap: wrap;
-            }.car {
-                text-decoration:none;
-                width: 300px;
-                height: 200px;
-                background-color: #181818;
-                color: white;
-                position: relative;
-                border-radius: 8px;
-                display: flex;
-                    justify-content: space-around;
-    flex-direction: column;
-    padding: 8px;
-            }
-            .car .car_img { text-align: center;
-background: #363636;
-display: flex;align-items: center;justify-content: center;
-}
-            .car img {
-    height: 104px;
-    width: fit-content;
-    
-}.other_deta {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 4px;
-}.car_links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 8px;
-}a.b_now {
-    text-decoration: none;
-    border: 1px solid white;
-    border-radius: 4px;
-    padding: 2px;
-    color: antiquewhite;
-}
-            
-
-        </style>   
-
         <h2>cars</h2>
         <div class="car_container">
             <?php foreach ($cars as $car): ?>

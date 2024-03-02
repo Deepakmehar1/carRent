@@ -28,79 +28,14 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manage Cars</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="car.css" />
     <style>
-        table.zebra {
-          width: 100%;
-          border-collapse: collapse;
-        }
-        table.zebra tr:nth-child(2n) {
-          background: #aef7ff;
-        }
-        table.zebra td {
-          padding: 10px;
-        }
-        .edit {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          background: wheat;
-          transform: translate(-50%, -50%);
-          border-radius: 16px;
-          filter: drop-shadow(2px 4px 6px black);
-          padding: 40px;
-          overflow: hidden;    z-index: 5;
-
-        }
-        .edit h5 {
-          font-size: 2vmax;
-          line-height: 0;
-        }
-        .edit p {
-          position: absolute;
-          top: 6%;
-          right: 15%;
-        }
-        .edit .inputs {
-          overflow: hidden;
-        }
-        .edit input {
-          width: 100%;
-          padding: 10px;
-          margin-top: 25px;
-          font-size: 16px;
-          border: none;
-          outline: none;
-          border-bottom: 2px solid #b0b3b9;
-        }
-
-        .edit input[type="submit"] {
-          color: #fff;
-          font-size: 16px;
-          padding: 12px 35px;
-          border-radius: 50px;
-          display: inline-block;
-          border: 0;
-          outline: 0;
-          box-shadow: 0px 4px 20px 0px #49c628a6;
-          background-image: linear-gradient(135deg, #70f570 10%, #49c628 100%);
-        }
-        .ed {
-          position: absolute;
-          right: 10%;
-          top: 3.5%;
-          background: red;
-          padding: 4px;
-          cursor: pointer;
-
-          border-radius: 4px;
-          font-size: 20px;
-          filter: drop-shadow(0px 0px 1px red);
-        }
+       
       </style>
   </head>
   <body>
     <?php include('nav.php'); ?>
-    <main style="position: relative;
+    <main class="m_car" style="position: relative;
        min-height: 58.3vh;">
       <div class="ed">Add Cars</div>
 
@@ -142,7 +77,7 @@ $conn->close();
         </table>
       </div>
     </main>
-    <div class="edit" style="display: none">
+    <div class="edit add_car" style="display: none">
       <h5>Add Car</h5>
       <p class="cancel"><img style="width:16px;" src="./img/close.png" alt=""></p>
 
@@ -183,31 +118,7 @@ $conn->close();
       </form>
     </div>
     <?php include('footer.php'); ?>
-    <script>
-      var cancel = document.querySelector(".cancel");
-      var ed = document.querySelector(".ed");
-      var main = document.querySelector("main");
-      var footer = document.querySelector("footer");
-      var nav = document.querySelector("nav");
-      var edit = document.querySelector(".edit");
-      ed.addEventListener("click", () => {
-        edit.style.display = "block";
-        main.style.pointerEvents = "none";
-        main.style.opacity = "0.4";
-        nav.style.pointerEvents = "none";
-        nav.style.opacity = "0.4";
-        footer.style.pointerEvents = "none";
-        footer.style.opacity = "0.4";
-      });
-      cancel.addEventListener("click", () => {
-        edit.style.display = "none";
-        main.style.pointerEvents = "all";
-        main.style.opacity = "1";
-        nav.style.pointerEvents = "all";
-        nav.style.opacity = "1";
-        footer.style.pointerEvents = "all";
-        footer.style.opacity = "1";
-      });
-    </script>
+<script src="script.js"></script>
+<script>card_apear()</script>
   </body>
 </html>
