@@ -1,4 +1,5 @@
 const img_items = document.querySelectorAll(".hr_img");
+let count = 0;
 function showNextimg() {
   const itemCount = img_items.length;
   img_items[count].classList.remove("active");
@@ -35,23 +36,53 @@ var footer = document.querySelector("footer");
 var nav = document.querySelector("nav");
 var edit = document.querySelector(".edit");
 function card_apear() {
-  
   ed.addEventListener("click", () => {
     edit.style.display = "block";
-  main.style.pointerEvents = "none";
-  main.style.opacity = "0.4";
-  nav.style.pointerEvents = "none";
-  nav.style.opacity = "0.4";
-  footer.style.pointerEvents = "none";
-  footer.style.opacity = "0.4";
-});
-cancel.addEventListener("click", () => {
-  edit.style.display = "none";
-  main.style.pointerEvents = "all";
-  main.style.opacity = "1";
-  nav.style.pointerEvents = "all";
-  nav.style.opacity = "1";
-  footer.style.pointerEvents = "all";
-  footer.style.opacity = "1";
-});
+    main.style.pointerEvents = "none";
+    main.style.opacity = "0.4";
+    nav.style.pointerEvents = "none";
+    nav.style.opacity = "0.4";
+    footer.style.pointerEvents = "none";
+    footer.style.opacity = "0.4";
+  });
+  cancel.addEventListener("click", () => {
+    edit.style.display = "none";
+    main.style.pointerEvents = "all";
+    main.style.opacity = "1";
+    nav.style.pointerEvents = "all";
+    nav.style.opacity = "1";
+    footer.style.pointerEvents = "all";
+    footer.style.opacity = "1";
+  });
+}
+/* testimonial */
+const t_items = document.querySelectorAll(".elem");
+const nextItem = document.querySelector(".next");
+const previousItem = document.querySelector(".previous");
+const TitemCount = t_items.length;
+let Tcount = 0;
+
+function showNextTItem() {
+  t_items[Tcount].classList.remove("active");
+
+  if (Tcount < TitemCount - 1) {
+    Tcount++;
+  } else {
+    Tcount = 0;
+  }
+
+  t_items[Tcount].classList.add("active");
+}
+
+function showPreviousTItem() {
+  t_items[Tcount].classList.remove("active");
+
+  if (Tcount > 0) {
+    Tcount--;
+  } else {
+    Tcount = TitemCount - 1;
+  }
+
+  t_items[Tcount].classList.add("active");
+  console.log(Tcount);
 }

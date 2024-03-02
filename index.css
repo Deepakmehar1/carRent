@@ -226,3 +226,49 @@ section {
 .answer {
   display: none;
 }
+/* testimonial */
+.slider {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.slider button {
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 20px 5px;
+  font-size: 2rem;
+}
+.slider .previous img {
+  transform: rotate(180deg);
+}
+.next img,
+.previous img {
+  height: 50px;
+}
+.slider .container {
+  width: 70%;
+}
+.slider .elem {
+  max-width: 100%;
+  display: none;
+  text-align: center;
+}
+
+.slider .elem.active {
+  display: block;
+  animation: fadeImg 0.8s;
+}
+
+@keyframes fadeImg {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
