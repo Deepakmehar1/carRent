@@ -1,0 +1,113 @@
+main.allcars {
+  margin-bottom: 16px;
+  min-height: 56.5vh;
+}
+.allcars .car_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.allcars .car {
+  text-decoration: none;
+  width: 300px;
+  height: 200px;
+  background-color: #181818;
+  color: white;
+  position: relative;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 8px;
+}
+.allcars .car .car_img {
+  text-align: center;
+  background: #363636;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.allcars .car img {
+  height: 104px;
+  width: fit-content;
+}
+.allcars .other_deta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 4px;
+}
+.allcars .car_links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+.allcars a.b_now {
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 2px;
+  color: antiquewhite;
+}
+/* manege cars */
+
+.add_car {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: wheat;
+  transform: translate(-50%, -50%);
+  border-radius: 16px;
+  filter: drop-shadow(2px 4px 6px black);
+  padding: 40px;
+  overflow: hidden;
+  z-index: 5;
+}
+.add_car h5 {
+  font-size: 2vmax;
+  line-height: 0;
+}
+.add_car p {
+  position: absolute;
+  top: 6%;
+  right: 15%;
+}
+.add_car .inputs {
+  overflow: hidden;
+}
+.add_car input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #b0b3b9;
+}
+
+.add_car input[type="submit"] {
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 35px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  box-shadow: 0px 4px 20px 0px #49c628a6;
+  background-image: linear-gradient(135deg, #70f570 10%, #49c628 100%);
+}
+.ed {
+  position: absolute;
+  right: 10%;
+  top: 3.5%;
+  background: red;
+  padding: 4px;
+  cursor: pointer;
+
+  border-radius: 4px;
+  font-size: 20px;
+  filter: drop-shadow(0px 0px 1px red);
+}

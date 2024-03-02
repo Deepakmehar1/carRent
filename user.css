@@ -1,0 +1,148 @@
+/* user */
+
+.user_main .top {
+  height: 30%;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.user_main .top .ed {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+}
+.user_main .user_img img {
+  height: 192px;
+  width: 192px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.user_main .user_img {
+  background-color: #befffd;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  padding: 4px;
+  filter: drop-shadow(0px 0px 3px #194e4d);
+}
+.user_main .bottom {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+}
+.user_main tr:nth-child(1) {
+  background: lightseagreen !important;
+}
+.user_main tr:nth-child(2n + 1) {
+  background: #5b5b5b;
+}
+.user_main tr:nth-child(2n) {
+  background: #7a7a7a;
+}
+.user_main tr:hover {
+  background: #b2f5f1;
+}
+.user_main td {
+  padding: 10px;
+  font-weight: 400;
+}
+.user_main {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  min-height: 58.2vh;
+}
+ .edit {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  background: wheat;
+  transform: translate(-50%, -50%);
+  border-radius: 16px;
+  filter: drop-shadow(2px 4px 6px black);
+  padding: 40px;
+  overflow: hidden;
+}
+ .edit h5 {
+  font-size: 2vmax;
+  line-height: 0;
+}
+ .edit p {
+  position: absolute;
+  top: 6%;
+  right: 15%;
+}
+ .edit .inputs {
+  overflow: hidden;
+}
+ .edit input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #b0b3b9;
+}
+ .edit input[type="submit"] {
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 35px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  box-shadow: 0px 4px 20px 0px #49c628a6;
+  background-image: linear-gradient(135deg, #70f570 10%, #49c628 100%);
+}
+ .edit img {
+  width: 16px;
+}
+/* admin */
+.admin_main {
+  height: 100vh;
+  margin: 16px 0;
+}
+.admin_main .top-elem {
+  height: 100px;
+  width: 200px;
+  background: #a6fffe;
+  border-radius: 16px;
+  text-align: center;
+  display: flex;
+  filter: drop-shadow(0px 0px 2px #a6f);
+  flex-direction: column;
+  justify-content: center;
+}
+.admin_main .top {
+  height: 25vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.admin_main .bottom {
+  height: 75vh;
+  display: flex;
+}
+.admin_main .bottom-left,
+.admin_main .bottom-right {
+  width: 50%;
+}
+.admin_main .l-bottom,
+.admin_main .l-top,
+.admin_main .bottom-right {
+  width: 100%;
+  height: 50%;
+  position: relative;
+  padding: 8px;
+  overflow-y: scroll;
+}
+.admin_main .bottom-right {
+  width: 50%;
+  height: 100%;
+}
+.admin_main .bottom-right a {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
