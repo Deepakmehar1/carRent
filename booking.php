@@ -199,7 +199,7 @@ color: #5b5b5b;
       </div>
       <input type="submit" value="submit"
       <?php
-if (!$available) {
+if (!$available || $user_data['restriction']=='yes') {
     echo "disabled";
 }
 ?>/>

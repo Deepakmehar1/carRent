@@ -55,7 +55,18 @@ $conn->close();
     <meta charset="UTF-8" />
     <title>Login Page in HTML with CSS Code Example</title>
 
-    <link rel="stylesheet" href="./test.css" />
+           <link rel="stylesheet" href="style.css" />
+ <style>body {
+  background-image: linear-gradient(135deg, #1d1d1d 10%, #20b2aa 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Open Sans", sans-serif;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  height: 98vh;
+}</style>
   </head>
   <body>
     <div class="box-form">
@@ -70,7 +81,7 @@ $conn->close();
       </div>
 
       <div class="right">
-        <h5>Login</h5>
+        <h5 style="margin: 109.79px 0;">Login</h5>
         <p>
           Don't have an account? <a href="
 http://localhost/car_rent/register.php

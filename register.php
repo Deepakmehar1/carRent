@@ -105,11 +105,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8" />
     <title>Login Page in HTML with CSS Code Example</title>
 
-    <link rel="stylesheet" href="./test.css" />
+       <link rel="stylesheet" href="style.css" />
+
+    <style>body {
+  background-image: linear-gradient(135deg, #1d1d1d 10%, #20b2aa 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Open Sans", sans-serif;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  height: 98vh;
+}</style>
   </head>
   <body>
     <div class="box-form" style="
-transform: scale(.9);
+transform: scale(.9);    align-self: flex-end;
 ">
       <div class="left">
         <div class="overlay">

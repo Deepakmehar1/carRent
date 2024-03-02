@@ -3,16 +3,33 @@
 include 'sysconfig/mysql.php';
 session_start();
 
+if (!isset($_COOKIE['user_data'])) {
+    header("Location: /car_rent/login.php");
+}
+if (isset($_COOKIE['user_data'])) {
+   $user_data = unserialize($_COOKIE['user_data']);
+}
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+$user_id = $user_data['user_id'];
+
+$sql = "SELECT * FROM users WHERE user_id = $user_id";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // User exists, proceed with rental insertion
+    // Rest of your code
+
+
 // Form submission handling
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
     $car_id = $_GET['car_id'];
-    $user_id = $_SESSION['user_id'];
+    $user_id = $user_data['user_id'];
     $start_timestamp = strtotime($start_date);
     $end_timestamp = strtotime($end_date);
     $rental_days = ceil(($end_timestamp - $start_timestamp) / (60 * 60 * 24));
@@ -24,7 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $total_price = $rental_days * $car['rental_price'];
     // SQL query to insert rantels data into database
-    $sql = "INSERT INTO rentals (car_id, user_id, start_date, end_date, total_cost) VALUES ('$car_id',$user_id,'$start_date', '$end_date', '$total_price')";
+    // $sql = "INSERT INTO rentals (car_id, user_id, start_date, end_date, total_cost) VALUES ('$car_id',$user_id,'$start_date', '$end_date', '$total_price')";
+
+$sql = "INSERT INTO rentals (car_id, user_id, start_date, end_date, total_cost) VALUES ('$car_id', $user_id, '$start_date', '$end_date', '$total_price')";
 
     if ($conn->query($sql) === true) {
         echo "Registration successful!";
@@ -37,7 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 }
-
+} else {
+    // User does not exist
+    echo "Error: The user does not exist.";
+}
 function setCarAvailability($car_id, $availability, $end_date)
 {
     global $conn; // Assuming $conn is your database connection object
