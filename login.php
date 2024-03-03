@@ -53,7 +53,7 @@ $conn->close();
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Login Page in HTML with CSS Code Example</title>
+    <title>Login</title>
 
            <link rel="stylesheet" href="style.css" />
  <style>body {
@@ -74,8 +74,8 @@ $conn->close();
         <div class="overlay">
           <h1>Hello World.</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            et est sed felis aliquet sollicitudin
+           
+"Welcome to GhostCar: Your Premier Destination for Hassle-Free Car Rentals"
           </p>
         </div>
       </div>

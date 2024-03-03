@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Login Page in HTML with CSS Code Example</title>
+    <title>Register</title>
 
        <link rel="stylesheet" href="style.css" />
 
@@ -127,9 +127,8 @@ transform: scale(.9);    align-self: flex-end;
         <div class="overlay">
           <h1>Hello World.</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            et est sed felis aliquet sollicitudin
-          </p>
+           
+"Welcome to GhostCar: Your Premier Destination for Hassle-Free Car Rentals"
         </div>
       </div>
 

@@ -40,97 +40,10 @@ include('trand.php');
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Car</title>
+    <title>Car</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="car.css" />
 
-    <style>
-      .car_main {
-        width: 100vw;
-        display: flex;
-      }
-      .car_left {
-        width: 70%;
-        
-        padding: 8px;
-      }
-      .car_left span {
-        opacity: 0.7;
-        font-size: 16px;
-      }
-      .car_left .car_img{display: flex; justify-content: center;background: lightseagreen;
-    border-radius: 16px;padding: 16px;}
-      .car_left img {
-        width: 662px;
-       
-      }
-      .car_left .details h2 {
-        line-height: 24px;
-        font-size: 32px;
-        margin-right: 50px;    margin-bottom: 8px;
-      }
-      .car_left .details {
-        position: relative;margin-top: 50px;
-      }.details:first-child{
-        color: aqua;
-    }
-      .car_left .details .book {
-        position: absolute;
-       top: 65px;
-    right: 37px;
-
-        text-decoration: none;
-            border: 2px solid #5a5a5a;
-    border-radius: 8px;
-    padding: 5px;
-    color: #121212;
-    background: lightseagreen;
-        font-size: x-large;
-        letter-spacing: 3px;
-        margin-right: 8px;
-        font-weight: 600;
-      }.car_right {
-    width: 30%;height: 600px;overflow: hidden;    overflow-y: scroll;
-    overflow-x: hidden; 
-}
-        .high_rate_container {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            gap: 32px;
-            flex-direction: column;    overflow-y: auto;
-
-        }.hrcar {
-            text-decoration:none;
-            width: 300px;
-            height: 200px;
-            position: relative;
-            border: 2px solid black;
-            color:black;
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-        }
-        .hrcar img{
-            height: 150px;
-            align-self: center;
-        }
-        .hrcar .car_deta{
-            display: none;
-            position: absolute;
-            top: 25%;
-        }
-        .hrcar:hover > img{
-                filter: blur(4px);
-        }
-        .hrcar:hover .car_deta{
-            display: block;
-        }.hrcar:hover .blur {
-    width: 286px;
-    height: 186px;
-    position: absolute;
-    background: #a2fff054;
-}
-    </style>
   </head>
   <body>
     <?php include('nav.php');?>
@@ -192,5 +105,6 @@ right: 0; margin-right: 8px;">
       </div>
     </div>
     <?php include('footer.php');?>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -38,8 +38,7 @@
   <div class="footer-right">
     <p class="footer-company-about">
       <span>About the company</span>
-      Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod
-      convallis velit, eu auctor lacus vehicula sit amet.
+      "Explore. Drive. Discover. GhostCar: Your seamless solution for hassle-free car rentals. Book your ride today!"
     </p>
 
     <div class="footer-icons">

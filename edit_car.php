@@ -59,78 +59,8 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Car</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-       .edit {
-    background: wheat;
-    filter: drop-shadow(0px 0px 1px black);
-    padding: 40px;
-    overflow: hidden;
-    position: absolute;
-    z-index: 5;
-}
-        .edit h5 {
-          font-size: 2vmax;
-          line-height: 0;
-        }
-        .edit p {
-          position: absolute;
-          top: 6%;
-          right: 15%;
-        }
-        .edit .inputs {
-          overflow: hidden;
-        }
-        .edit input {
-          width: 100%;
-          padding: 10px;
-          margin-top: 25px;
-          font-size: 16px;
-          border: none;
-          outline: none;
-          border-bottom: 2px solid #b0b3b9;
-        }
-
-        .edit input[type="submit"] {
-          color: #fff;
-          font-size: 16px;
-          padding: 12px 35px;
-          border-radius: 50px;
-          display: inline-block;
-          border: 0;
-          outline: 0;
-          box-shadow: 0px 4px 20px 0px #49c628a6;
-          background-image: linear-gradient(135deg, #70f570 10%, #49c628 100%);
-        }
-        .ed {
-          position: absolute;
-          right: 10%;
-          top: 3.5%;
-          background: red;
-          padding: 4px;
-          cursor: pointer;
-
-          border-radius: 4px;
-          font-size: 20px;
-          filter: drop-shadow(0px 0px 1px red);
-        }.ed-cont  img{    position: relative;
-    object-fit: fill;
-    width: 100%;
-        }.ed-cont {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding:16px;
-    position:relative;
-}.overlay {
-    padding: 30px;
-    width: 100%;
-    height: 100%;
-    background: #b0efff66;
-    overflow: hidden;
-    box-sizing: border-box;
-    position: absolute;
-}
-    </style>
+    <link rel="stylesheet" href="car.css">
+    
 </head>
 <body>
         <?php include('nav.php'); ?>
@@ -145,7 +75,7 @@ $conn->close();
         <input type="text" id="availability" name="availability" value="<?php echo $car['availability']; ?>" required><br>
         <input type="number" id="year" name="year" value="<?php echo $car['year']; ?>" required><br>
         <input type="number" id="rental_price" name="rental_price" value="<?php echo $car['rental_price']; ?>" step="0.01" required><br>
-        <input type="file" id="car_img" name="car_img" accept="image/*" ><br>
+       
         <br />
         <input type="submit" value="Edit Car">
     </form>
@@ -153,6 +83,6 @@ $conn->close();
 </div>
 </div>
         <?php include('footer.php'); ?>
-
+    <script src="script.js"></script>
 </body>
 </html>

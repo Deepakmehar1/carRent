@@ -27,6 +27,30 @@ function stick_navigatio() {
   });
 }
 stick_navigatio();
+/* booking */
+      function calculatePrice(rental_price) {
+          var startDate = document.getElementById('start_date').value;
+          var endDate = document.getElementById('end_date').value;
+
+          // Perform validation
+          var startDateObj = new Date(startDate);
+          var endDateObj = new Date(endDate);
+
+          if (startDate === "" || endDate === "" || startDateObj >= endDateObj) {
+              alert("Please select valid dates.");
+              return;
+          }
+
+          var rentalDays = Math.ceil((endDateObj - startDateObj) / (1000 * 60 * 60 * 24)); // Number of days rounded up
+
+          // Retrieve rental price per day from PHP variable (you should set this value dynamically)
+          var rentalPricePerDay = rental_price;
+
+          // Calculate total price
+          var total_cost = rentalDays * rentalPricePerDay;
+          // Display the total price to the user
+          document.getElementById('total_cost').value = total_cost.toFixed(2);
+      }
 
 /* user */
 var cancel = document.querySelector(".cancel");

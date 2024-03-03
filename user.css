@@ -52,30 +52,30 @@
   padding: 16px;
   min-height: 58.2vh;
 }
- .edit {
+.edit {
   position: absolute;
   top: 40%;
   left: 50%;
-  background: wheat;
+  background-image: linear-gradient(155deg, #a1ffff 23%, #289dc6 100%);
   transform: translate(-50%, -50%);
   border-radius: 16px;
   filter: drop-shadow(2px 4px 6px black);
   padding: 40px;
   overflow: hidden;
 }
- .edit h5 {
+.edit h5 {
   font-size: 2vmax;
   line-height: 0;
 }
- .edit p {
+.edit p {
   position: absolute;
   top: 6%;
   right: 15%;
 }
- .edit .inputs {
+.edit .inputs {
   overflow: hidden;
 }
- .edit input {
+.edit input {
   width: 100%;
   padding: 10px;
   margin-top: 25px;
@@ -84,7 +84,7 @@
   outline: none;
   border-bottom: 2px solid #b0b3b9;
 }
- .edit input[type="submit"] {
+.edit input[type="submit"] {
   color: #fff;
   font-size: 16px;
   padding: 12px 35px;
@@ -92,10 +92,10 @@
   display: inline-block;
   border: 0;
   outline: 0;
-  box-shadow: 0px 4px 20px 0px #49c628a6;
-  background-image: linear-gradient(135deg, #70f570 10%, #49c628 100%);
+  box-shadow: 0px 4px 20px 0px #6ace50cf;
+  background-image: linear-gradient(135deg, #004848 23%, #28c686 100%);
 }
- .edit img {
+.edit img {
   width: 16px;
 }
 /* admin */
@@ -138,11 +138,69 @@
   overflow-y: scroll;
 }
 .admin_main .bottom-right {
-  width: 50%;
+  /* width: 50%; */
   height: 100%;
 }
 .admin_main .bottom-right a {
   position: absolute;
   top: 0;
   right: 0;
+}
+/* booking car */
+.car_booking {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  margin-bottom: 32px;
+}
+.date,
+.cal_price {
+  display: flex;
+  margin-bottom: 8px;
+}
+.car_booking img {
+  width: 200px;
+}
+.book-form {
+  left: 50%;
+  transform: translateX(-50%);
+  height: 150px;
+  width: 500px;
+  border: 2px solid;
+  border-radius: 16px;
+  padding: 16px;
+  position: relative;
+  margin-bottom: 39px;
+}
+.book-form input[type="submit"] {
+  position: absolute;
+  left: 39%;
+  background: lightseagreen;
+  border: 0;
+  border-radius: 11px;
+  font-size: 1.2rem;
+  filter: drop-shadow(0px 0px 2px black);
+}
+.book-form input[type="button"] {
+  border: 0;
+  border-radius: 11px;
+  color: lightseagreen;
+  filter: drop-shadow(0px 0px 2px lightseagreen);
+}
+.car_booking span {
+  font-size: 20px;
+  font-weight: 400;
+
+  color: #5b5b5b;
+}
+.car_booking .car_img {
+  display: flex;
+  justify-content: center;
+  background: lightseagreen;
+  border-radius: 8px;
+}
+.book-form input[type="date"] {
+  border: none;
+  filter: drop-shadow(0px 0px 2px black);
 }

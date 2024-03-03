@@ -68,66 +68,10 @@ $conn->close();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Car</title>
+    <title>Book Car</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="user.css" />
 
-    <style>
-      .date,
-      .cal_price {
-        display: flex;
-        margin-bottom: 8px;
-      }
-      .car_booking img {
-        width: 200px;
-      }
-      .car_booking {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 16px;
-      }
-      form {
-        left: 50%;
-        transform: translateX(-50%);
-        height: 150px;
-        width: 500px;
-        border: 2px solid;
-        border-radius: 16px;
-        padding: 16px;
-        position: relative;    margin-bottom: 39px;
-      }
-      input[type="submit"] {
-        position: absolute;
-        left: 39%;
-        background: lightseagreen;
-        border: 0;
-        border-radius: 11px;
-        font-size: 1.2rem;
-        filter: drop-shadow(0px 0px 2px black);
-      }
-      input[type="button"] {
-        border: 0;
-        border-radius: 11px;
-        color: lightseagreen;
-        filter: drop-shadow(0px 0px 2px lightseagreen);
-      }
-      span {
-        font-size: 20px;
-        font-weight: 400;
-        
-color: #5b5b5b;
-
-      }
-      .car_booking .car_img {
-        display: flex;
-        justify-content: center;
-        background: lightseagreen;
-        border-radius: 8px;
-      }input[type=date] {
-    border: none;
-    filter: drop-shadow(0px 0px 2px black);
-}
-    </style>
   </head>
   <body>
     <?php include('nav.php');?>
@@ -169,7 +113,7 @@ color: #5b5b5b;
 
     <h2>booking dates</h2>
 
-    <form action="book.php?car_id=<?php echo $car['car_id'];?>" method="post">
+    <form action="book.php?car_id=<?php echo $car['car_id'];?>" method="post" class="book-form">
       <div class="date">
         <div>
           <label for="start_date">Start Date:</label><br />
@@ -194,42 +138,19 @@ color: #5b5b5b;
         <input
           type="button"
           value="Calculate Price"
-          onclick="calculatePrice()"
+          onclick="calculatePrice(<?php echo $car['rental_price']; ?>)"
         />
       </div>
       <input type="submit" value="submit"
       <?php
-if (!$available || $user_data['restriction']=='yes') {
+if (!$available ||  isset($user_data['restriction']) && $user_data['restriction'] == 'yes') {
     echo "disabled";
 }
 ?>/>
     </form>
-
-    <script>
-      function calculatePrice() {
-          var startDate = document.getElementById('start_date').value;
-          var endDate = document.getElementById('end_date').value;
-
-          // Perform validation
-          var startDateObj = new Date(startDate);
-          var endDateObj = new Date(endDate);
-
-          if (startDate === "" || endDate === "" || startDateObj >= endDateObj) {
-              alert("Please select valid dates.");
-              return;
-          }
-
-          var rentalDays = Math.ceil((endDateObj - startDateObj) / (1000 * 60 * 60 * 24)); // Number of days rounded up
-
-          // Retrieve rental price per day from PHP variable (you should set this value dynamically)
-          var rentalPricePerDay = <?php echo $car['rental_price']; ?>;
-
-          // Calculate total price
-          var total_cost = rentalDays * rentalPricePerDay;
-          // Display the total price to the user
-          document.getElementById('total_cost').value = total_cost.toFixed(2);
-      }
-    </script>
-     <?php include('footer.php');?>
+    
+    
+    <?php include('footer.php');?>
+    <script src="script.js"></script>
   </body>
 </html>

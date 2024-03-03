@@ -13,7 +13,6 @@ if (isset($_COOKIE['user_data'])) {
 
     $user_Id = $user_data['user_id'];
 
-    // Fetch rantalss from database
 
     $sql = "SELECT cars.model, cars.make,rentals.start_date,rentals.end_date,rentals.total_cost
 FROM rentals 
@@ -23,7 +22,6 @@ WHERE rentals.user_id=$user_Id
 
 
 
-    // $sql = "SELECT * FROM rentals WHERE user_id=$user_Id";
     $rentalsResult = $conn->query($sql);
 
     $rentals = [];
@@ -78,9 +76,9 @@ border-spacing: 0; text-align: center; "
             <tr>
               <th>make</th>
               <th>model</th>
-              <th>start_date</th>
-              <th>end_date</th>
-              <th>total_cost</th>
+              <th>start date</th>
+              <th>end date</th>
+              <th>total cost</th>
             </tr>
             <?php foreach ($rentals as $rental): ?>
             <tr>

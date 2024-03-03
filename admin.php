@@ -84,9 +84,9 @@ $conn->close();
     
       <div class="top">
         <div class="top-elem">
-            <h2>total cars</h2><h3><?php  echo $cars[0]['cofe']; ?></h3></div>
-        <div class="top-elem"><h2>total users</h2><h3><?php  echo $users[0]['cofe'];?></h3></div>
-        <div class="top-elem"><h2>total rental</h2><h3><?php  echo $rentals[0]['cofe'];?></h3></div>
+            <h2>Total Cars</h2><h3><?php  echo $cars[0]['cofe']; ?></h3></div>
+        <div class="top-elem"><h2>Total Users</h2><h3><?php  echo $users[0]['cofe'];?></h3></div>
+        <div class="top-elem"><h2>Total Rental</h2><h3><?php  echo $rentals[0]['cofe'];?></h3></div>
       </div>
       <hr />
       <div class="bottom">
@@ -96,12 +96,12 @@ $conn->close();
             <h1>Manage Cars</h1>
             <table class="zebra">
               <tr>
-                <td>make</td>
-                <td>model</td>
-                <td>year</td>
-                <td>rent</td>
+                <td>Make</td>
+                <td>Model</td>
+                <td>Year</td>
+                <td>Rent</td>
                 <td>Action</td>
-                <td>date</td>
+                <td>Date</td>
               </tr>
               <?php foreach ($cars as $car): ?>
                 <tr>
@@ -120,7 +120,7 @@ $conn->close();
     position: absolute;
     top: 5%;
     right: 5%;
-">manegeCars</a>
+">Manege Cars</a>
           </div>
           <hr />
           <div class="l-bottom">
@@ -129,9 +129,9 @@ $conn->close();
             <table class="zebra">
               <tr>
                 <td>ID</td>
-                    <td>name</td>
-                    <td>email</td>
-                    <td>restriction</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Restriction</td>
               </tr>
               <?php foreach ($users as $user): ?>
                 <tr>
@@ -148,7 +148,7 @@ $conn->close();
     position: absolute;
     top: 5%;
     right: 5%;
-">manegeUsers</a>
+">Manege Users</a>
 
           </div>
         </div>
@@ -157,12 +157,12 @@ $conn->close();
           <h1>Rentals</h1>
           <table class="zebra">
             <tr>
-                                  <td>rental_id</td>
-                    <td>user_id</td>
-                    <td>car_id</td>
-                    <td>start_date</td>
-                    <td>end_date</td>
-                    <td>total_cost</td>
+                    <td>Rental Id</td>
+                    <td>Name</td>
+                    <td>Car</td>
+                    <td>Start Date</td>
+                    <td>End Date</td>
+                    <td>Total Cost</td>
 
             </tr>
             <?php foreach ($rentals as $rental): ?>
@@ -184,5 +184,7 @@ $conn->close();
  <?php
     include('footer.php')
 ?>
+<script src="script.js"></script>
+
   </body>
 </html>
