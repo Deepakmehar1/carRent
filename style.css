@@ -14,6 +14,7 @@ html {
 body {
   overflow-x: hidden;
   padding: 64px 16px 0;
+  min-height: 100vh;
 }
 /* login/register */
 .box-form {
@@ -180,6 +181,10 @@ nav {
   transition: 0.6s;
   font-weight: 900;
 }
+.navicon{
+  width: 20.8px;
+  height: 20.8px;
+}
 nav.sticky {
   padding: 10px 10px;
   background: #fff;
@@ -202,7 +207,9 @@ nav ul li a {
   font-size: 18px;
   margin: 0 15px;
   letter-spacing: 2px;
-  font-weight: 500px;
+  font-weight: 500;
+  display: flex;
+  gap: 5px;
 }
 nav ul li a::after {
   content: "";
@@ -229,10 +236,16 @@ nav .right .lore {
   border: 0.1px solid;
   border-radius: 20px;
 }
+nav .right-contain .navItem .navicon {
+  filter: invert(1);
+}
 nav .right-contain .navItem {
   text-decoration: none;
   color: white;
   font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 nav .right {
   position: relative;
@@ -240,14 +253,16 @@ nav .right {
 nav .right-contain {
   overflow: hidden;
   position: absolute;
-  display: flex;
+  /* display: flex; */
   right: -2px;
   flex-direction: column;
   height: 0;
-  transition: 0.6s;
-  padding: 4px;
+  transition: all 6s;
+  width: max-content;
+  padding: 16px;
   top: 40px;
   gap: 4px;
+  background-color: #2b2b2b;
   border-radius: 8px;
 }
 
@@ -275,6 +290,8 @@ nav .right-p img {
   font: bold 16px sans-serif;
   padding: 24px 48px;
   margin-left: -16px;
+  position: absolute;
+  bottom: 0;
 }
 
 .footer-distributed .footer-left,

@@ -1,6 +1,6 @@
 <footer class="footer-distributed">
   <div class="footer-left">
-    <h3><span>GHOSTCAR</span></h3>
+    <h3><span>CARHOST</span></h3>
 
     <p class="footer-links">
       <a href="/car_rent/" class="link-1">Home</a>
@@ -21,7 +21,7 @@
   <div class="footer-center">
     <div>
       <i class="fa fa-map-marker"></i>
-      <p><span>420 kg college</span> old narasupara,raigarh</p>
+      <p><span> bangla para</span> chakradhar nagar,raigarh</p>
     </div>
 
     <div>
@@ -31,14 +31,14 @@
 
     <div>
       <i class="fa fa-envelope"></i>
-      <p><a href="mailto:support@company.com">support@ghostcar.com</a></p>
+      <p><a href="mailto:support@company.com">support@carhost.com</a></p>
     </div>
   </div>
 
   <div class="footer-right">
     <p class="footer-company-about">
       <span>About the company</span>
-      "Explore. Drive. Discover. GhostCar: Your seamless solution for hassle-free car rentals. Book your ride today!"
+      "Explore. Drive. Discover. CarHost: Your seamless solution for hassle-free car rentals. Book your ride today!"
     </p>
 
     <div class="footer-icons">

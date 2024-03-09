@@ -7,6 +7,8 @@ a.btn {
   background: #2a2a2a;
   padding: 10px;
   border-radius: 20px;
+  display: flex;
+  align-items: center;
 }
 .hero {
   margin-top: 0;

@@ -27,30 +27,45 @@ function stick_navigatio() {
   });
 }
 stick_navigatio();
+let navCount = 0;
+var nmen = document.querySelector(".right-contain");
+function showMenu() {
+  if (navCount == 0) {
+    nmen.style.display = "flex";
+    nmen.style.height = "auto";
+    navCount++;
+  } else {
+    nmen.style.height = "0";
+    nmen.style.display = "none";
+    navCount = 0;
+  }
+}
 /* booking */
-      function calculatePrice(rental_price) {
-          var startDate = document.getElementById('start_date').value;
-          var endDate = document.getElementById('end_date').value;
+function calculatePrice(rental_price) {
+  var startDate = document.getElementById("start_date").value;
+  var endDate = document.getElementById("end_date").value;
 
-          // Perform validation
-          var startDateObj = new Date(startDate);
-          var endDateObj = new Date(endDate);
+  // Perform validation
+  var startDateObj = new Date(startDate);
+  var endDateObj = new Date(endDate);
 
-          if (startDate === "" || endDate === "" || startDateObj >= endDateObj) {
-              alert("Please select valid dates.");
-              return;
-          }
+  if (startDate === "" || endDate === "" || startDateObj >= endDateObj) {
+    alert("Please select valid dates.");
+    return;
+  }
 
-          var rentalDays = Math.ceil((endDateObj - startDateObj) / (1000 * 60 * 60 * 24)); // Number of days rounded up
+  var rentalDays = Math.ceil(
+    (endDateObj - startDateObj) / (1000 * 60 * 60 * 24)
+  ); // Number of days rounded up
 
-          // Retrieve rental price per day from PHP variable (you should set this value dynamically)
-          var rentalPricePerDay = rental_price;
+  // Retrieve rental price per day from PHP variable (you should set this value dynamically)
+  var rentalPricePerDay = rental_price;
 
-          // Calculate total price
-          var total_cost = rentalDays * rentalPricePerDay;
-          // Display the total price to the user
-          document.getElementById('total_cost').value = total_cost.toFixed(2);
-      }
+  // Calculate total price
+  var total_cost = rentalDays * rentalPricePerDay;
+  // Display the total price to the user
+  document.getElementById("total_cost").value = total_cost.toFixed(2);
+}
 
 /* user */
 var cancel = document.querySelector(".cancel");
