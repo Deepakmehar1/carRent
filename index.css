@@ -82,7 +82,9 @@ section {
 }
 .tcar img {
   height: 150px;
+  width: 284px;
   align-self: center;
+  object-fit: contain;
 }
 .tcar .car_deta {
   display: none;
@@ -130,7 +132,9 @@ section {
 }
 .hrcar img {
   height: 150px;
+  width: 284px;
   align-self: center;
+  object-fit: contain;
 }
 .hrcar .car_deta {
   display: none;
