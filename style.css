@@ -290,7 +290,7 @@ nav .right-p img {
   font: bold 16px sans-serif;
   padding: 24px 48px;
   margin-left: -16px;
-  position: absolute;
+  position: relative;
   bottom: 0;
 }
 
